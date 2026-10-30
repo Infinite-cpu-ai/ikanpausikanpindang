@@ -48,16 +48,6 @@
                                         </td>
                                     </tr>
                                 </table>
-                                <table role="presentation" class="wave-transition" width="100%" cellspacing="0" cellpadding="0" border="0" style="background: #0b86a4; overflow: hidden;">
-                                    <tr>
-                                        <td width="50%" style="height: 28px; padding: 0; background: #0b86a4; font-size: 0; line-height: 0;">
-                                            <div style="height: 34px; margin: 0 -18% -10px; border-radius: 50% 50% 0 0 / 100% 100% 0 0; background: #082f4d;">&nbsp;</div>
-                                        </td>
-                                        <td width="50%" style="height: 28px; padding: 0; background: #0b86a4; font-size: 0; line-height: 0;">
-                                            <div style="height: 34px; margin: 0 -18% -10px; border-radius: 50% 50% 0 0 / 100% 100% 0 0; background: #082f4d;">&nbsp;</div>
-                                        </td>
-                                    </tr>
-                                </table>
                                 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background: #082f4d;">
                                     <tr>
                                         <td class="email-pad" style="padding: 34px 38px 38px;">
@@ -113,16 +103,6 @@
                                                 </tr>
                                             </table>
 
-                                        </td>
-                                    </tr>
-                                </table>
-                                <table role="presentation" class="wave-transition wave-transition-footer" width="100%" cellspacing="0" cellpadding="0" border="0" style="background: #082f4d; overflow: hidden;">
-                                    <tr>
-                                        <td width="50%" style="height: 24px; padding: 0; background: #082f4d; font-size: 0; line-height: 0;">
-                                            <div style="height: 30px; margin: 0 -18% -10px; border-radius: 50% 50% 0 0 / 100% 100% 0 0; background: #031c35;">&nbsp;</div>
-                                        </td>
-                                        <td width="50%" style="height: 24px; padding: 0; background: #082f4d; font-size: 0; line-height: 0;">
-                                            <div style="height: 30px; margin: 0 -18% -10px; border-radius: 50% 50% 0 0 / 100% 100% 0 0; background: #031c35;">&nbsp;</div>
                                         </td>
                                     </tr>
                                 </table>
