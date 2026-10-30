@@ -7,3 +7,67 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+@keyframes ocean-drift {
+    0%, 100% {
+        transform: translate3d(0, 0, 0) rotate(-2deg);
+    }
+    50% {
+        transform: translate3d(0, -14px, 0) rotate(2deg);
+    }
+}
+
+@keyframes bubble-rise {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(.8);
+    }
+    15%, 80% {
+        opacity: .7;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-360px) scale(1.15);
+    }
+}
+
+@keyframes wave-slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.ocean-drift {
+    animation: ocean-drift 6s ease-in-out infinite;
+}
+
+.bubble {
+    animation: bubble-rise 8s ease-in infinite;
+}
+
+.bubble-delay-1 {
+    animation-delay: 2s;
+}
+
+.bubble-delay-2 {
+    animation-delay: 4.5s;
+}
+
+.bubble-delay-3 {
+    animation-delay: 6s;
+}
+
+.wave-slide {
+    animation: wave-slide 18s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ocean-drift,
+    .bubble,
+    .wave-slide {
+        animation: none;
+    }
+}

@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="id">
-    <body style="margin: 0; background: #f7f4ed; color: #183b3a; font-family: Arial, sans-serif; line-height: 1.6;">
+    <body style="margin: 0; background: #e9fbff; color: #032744; font-family: Arial, sans-serif; line-height: 1.6;">
         <div style="max-width: 600px; margin: 0 auto; padding: 32px 20px;">
-            <div style="background: #183b3a; border-radius: 20px 20px 0 0; padding: 28px; color: #ffffff;">
-                <p style="margin: 0 0 8px; color: #e6a84d; font-size: 12px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase;">
+            <div style="background: #031c35; border-radius: 20px 20px 0 0; padding: 28px; color: #ffffff;">
+                <p style="margin: 0 0 8px; color: #63d8f2; font-size: 12px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase;">
                     Ikanpausikanpindang
                 </p>
-                <h1 style="margin: 0; font-size: 28px;">Pendaftaran berhasil!</h1>
+                <h1 style="margin: 0; font-size: 28px;">Sampai jumpa di Laut Bercerita!</h1>
             </div>
             <div style="background: #ffffff; border-radius: 0 0 20px 20px; padding: 28px;">
                 <p>Halo, <strong>{{ $registration['name'] }}</strong>.</p>
-                <p>Terima kasih sudah melakukan pendaftaran. Data kamu sudah kami terima dan akan kami proses.</p>
+                <p>Terima kasih sudah mendaftar. Data kamu sudah kami terima dan tempatmu di festival laut Laut Bercerita 2026 sudah tercatat.</p>
 
-                <div style="margin: 24px 0; border-left: 4px solid #d96c3f; padding: 4px 0 4px 16px;">
+                <div style="margin: 24px 0; border-left: 4px solid #0b86a4; padding: 4px 0 4px 16px;">
+                    <p style="margin: 0 0 6px;"><strong>Acara:</strong> Laut Bercerita 2026</p>
+                    <p style="margin: 0 0 6px;"><strong>Waktu:</strong> 14–15 Juni 2026, 08.00–21.00 WIB</p>
+                    <p style="margin: 0 0 6px;"><strong>Lokasi:</strong> Pantai Tanjung Biru</p>
                     <p style="margin: 0 0 6px;"><strong>Email:</strong> {{ $registration['email'] }}</p>
                     <p style="margin: 0 0 6px;"><strong>No. telepon:</strong> {{ $registration['phone'] }}</p>
                     <p style="margin: 0;"><strong>Tanggal lahir:</strong> {{ \Illuminate\Support\Carbon::parse($registration['birth_date'])->translatedFormat('d F Y') }}</p>
@@ -25,7 +28,7 @@
                 @endif
                 <p style="margin-bottom: 0;">Simpan email ini sebagai bukti pendaftaran. Kami akan menghubungi kamu jika ada informasi berikutnya.</p>
             </div>
-            <p style="margin: 20px 0 0; color: #183b3a99; font-size: 12px; text-align: center;">
+            <p style="margin: 20px 0 0; color: #03274499; font-size: 12px; text-align: center;">
                 Email ini dikirim otomatis, mohon tidak membalas email ini.
             </p>
         </div>

@@ -8,7 +8,8 @@ it('renders the registration form', function () {
 
     $response
         ->assertOk()
-        ->assertSee('Form pendaftaran')
+        ->assertSee('Laut Bercerita 2026')
+        ->assertSee('Agenda utama')
         ->assertSee('Kirim pendaftaran');
 });
 
