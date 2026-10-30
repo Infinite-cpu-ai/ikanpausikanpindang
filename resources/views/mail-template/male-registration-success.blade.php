@@ -5,6 +5,47 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pendaftaran berhasil - {{ config('event.name') }}</title>
         <style>
+            @keyframes bubble-rise {
+                0%, 100% { transform: translateY(4px); opacity: .58; }
+                50% { transform: translateY(-10px); opacity: 1; }
+            }
+            @keyframes wave-drift {
+                0%, 100% { transform: translateX(-6px) scaleY(.92); }
+                50% { transform: translateX(6px) scaleY(1.08); }
+            }
+            @keyframes ocean-shimmer {
+                0%, 100% { opacity: .78; }
+                50% { opacity: 1; }
+            }
+            .email-bubbles td > div {
+                animation: bubble-rise 3.8s ease-in-out infinite;
+            }
+            .email-bubbles td:nth-child(2) > div { animation-delay: .35s; }
+            .email-bubbles td:nth-child(3) > div { animation-delay: .7s; }
+            .email-bubbles td:nth-child(4) > div { animation-delay: 1.05s; }
+            .email-bubbles td:nth-child(5) > div { animation-delay: 1.4s; }
+            .email-wave {
+                animation: wave-drift 5s ease-in-out infinite;
+                transform-origin: center;
+            }
+            .email-wave-large {
+                animation-duration: 6.5s;
+                animation-delay: .4s;
+            }
+            .email-wave td {
+                animation: ocean-shimmer 4s ease-in-out infinite;
+            }
+            .email-wave td:nth-child(2),
+            .email-wave td:nth-child(4) {
+                animation-delay: .8s;
+            }
+            @media (prefers-reduced-motion: reduce) {
+                .email-bubbles td > div,
+                .email-wave,
+                .email-wave td {
+                    animation: none !important;
+                }
+            }
             @media only screen and (max-width: 620px) {
                 .email-shell { width: 100% !important; }
                 .email-pad { padding: 28px 20px !important; }
