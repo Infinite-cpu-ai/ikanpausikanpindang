@@ -7,5 +7,5 @@ test('the application returns a successful response', function () {
         ->assertOk()
         ->assertSee('Rasa pesisir yang')
         ->assertSee('data-menu-toggle')
-        ->assertSee('Temukan rasanya');
+        ->assertSee('Daftar sekarang');
 });

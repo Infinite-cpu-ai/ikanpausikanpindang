@@ -54,8 +54,8 @@
                             Ikanpausikanpindang merayakan cerita laut dan kuliner khas Indonesia lewat resep yang hangat, jujur, dan mudah dinikmati siapa saja.
                         </p>
                         <div class="mt-8 flex flex-wrap gap-4" id="mulai">
-                            <a href="#rasa" class="inline-flex items-center gap-2 rounded-full bg-[#183b3a] px-6 py-3.5 font-semibold text-white transition hover:bg-[#285957]">
-                                Temukan rasanya
+                            <a href="{{ route('registrations.create') }}" class="inline-flex items-center gap-2 rounded-full bg-[#183b3a] px-6 py-3.5 font-semibold text-white transition hover:bg-[#285957]">
+                                Daftar sekarang
                                 <span aria-hidden="true">→</span>
                             </a>
                             <a href="#cerita" class="inline-flex items-center rounded-full border border-[#183b3a]/20 px-6 py-3.5 font-semibold transition hover:border-[#d96c3f] hover:text-[#d96c3f]">
