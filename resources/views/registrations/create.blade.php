@@ -10,8 +10,9 @@
     <body class="min-h-screen overflow-x-hidden bg-[#021426] text-white antialiased">
         <header class="relative z-30 border-b border-white/10 bg-[#021426]/75 backdrop-blur-xl">
             <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8" aria-label="Navigasi utama">
-                <a href="{{ route('home') }}" class="font-serif text-xl font-bold tracking-tight">
-                    ikanpaus<span class="text-[#63d8f2]">ikanpindang</span>
+                <a href="{{ route('home') }}" class="flex items-center gap-3 font-serif text-xl font-bold tracking-tight">
+                    <img src="{{ asset('images/ikanpausikanpindang-mascot.jpeg') }}" alt="Maskot Ikanpausikanpindang" class="h-11 w-11 rounded-full border border-[#63d8f2]/60 object-cover">
+                    <span>ikanpaus<span class="text-[#63d8f2]">ikanpindang</span></span>
                 </a>
                 <div class="flex items-center gap-6 text-sm font-semibold text-white/75">
                     <a href="{{ route('home') }}#acara" class="hidden transition hover:text-[#63d8f2] sm:block">Tentang acara</a>
@@ -42,28 +43,55 @@
                     <div class="absolute -right-20 -top-20 h-52 w-52 rounded-full bg-[#63d8f2]/10 blur-3xl"></div>
                     @if (session('registration_submitted'))
                         @php($ticket = session('registration_ticket'))
-                        <div class="relative overflow-hidden rounded-3xl border border-[#63d8f2]/30 bg-[#031c35]/75 p-6 text-[#d9faff] shadow-xl shadow-black/20 sm:p-8" role="status">
-                            <div class="absolute -right-12 -top-16 h-44 w-44 rounded-full bg-[#63d8f2]/15 blur-3xl"></div>
-                            <div class="relative flex flex-wrap items-start justify-between gap-5">
+                        <div class="relative overflow-hidden rounded-[2rem] border border-[#63d8f2]/50 bg-gradient-to-br from-[#0b5273] via-[#06385a] to-[#031c35] p-7 text-[#d9faff] shadow-2xl shadow-black/30 sm:p-10" role="status">
+                            <div class="absolute -right-16 -top-24 h-72 w-72 rounded-full bg-[#63d8f2]/20 blur-3xl"></div>
+                            <div class="absolute -bottom-28 -left-20 h-64 w-64 rounded-full bg-[#f7c95c]/10 blur-3xl"></div>
+                            <div class="relative flex flex-col gap-8 border-b border-white/15 pb-8 lg:flex-row lg:items-start lg:justify-between">
                                 <div>
-                                    <p class="text-sm font-bold uppercase tracking-[0.2em] text-[#63d8f2]">✦ Tiket invitation</p>
-                                    <h2 class="mt-3 font-serif text-3xl font-bold text-white">Pendaftaran berhasil!</h2>
-                                    <p class="mt-2 max-w-xl text-sm leading-6 text-white/65">Tiket ini sudah dibuat dan email konfirmasi sudah dikirim ke <strong class="text-[#d9faff]">{{ $ticket['email'] }}</strong>.</p>
+                                    <p class="text-sm font-bold uppercase tracking-[0.25em] text-[#63d8f2]">✦ Tiket invitation resmi</p>
+                                    <h2 class="mt-4 font-serif text-4xl font-bold leading-tight text-white sm:text-5xl">Pendaftaran berhasil!</h2>
+                                    <p class="mt-4 max-w-2xl text-base leading-7 text-white/70">Tiketmu sudah siap. Email konfirmasi juga telah dikirim ke <strong class="text-[#d9faff]">{{ $ticket['email'] }}</strong>.</p>
                                 </div>
-                                <div class="rounded-2xl border border-[#f7c95c]/40 bg-[#f7c95c]/10 px-4 py-3 text-right">
-                                    <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#f7c95c]">Kode tiket</p>
-                                    <p class="mt-1 font-mono text-lg font-bold tracking-wider text-white">{{ $ticket['code'] }}</p>
+                                <div class="shrink-0 rounded-3xl border-2 border-[#f7c95c]/70 bg-[#f7c95c]/15 px-6 py-5 lg:min-w-64 lg:text-right">
+                                    <p class="text-xs font-bold uppercase tracking-[0.25em] text-[#f7c95c]">Kode tiket</p>
+                                    <p class="mt-2 break-all font-mono text-2xl font-black tracking-[0.12em] text-white sm:text-3xl">{{ $ticket['code'] }}</p>
                                 </div>
                             </div>
-                            <div class="relative mt-7 grid gap-3 border-t border-white/10 pt-5 sm:grid-cols-2">
+                            <div class="relative grid gap-4 border-b border-white/15 py-8 sm:grid-cols-3">
+                                <div class="rounded-2xl border border-white/10 bg-white/10 p-4">
+                                    <p class="text-xs font-bold uppercase tracking-[0.18em] text-[#63d8f2]">Acara</p>
+                                    <p class="mt-2 text-base font-bold text-white">{{ $event['name'] }}</p>
+                                </div>
+                                <div class="rounded-2xl border border-white/10 bg-white/10 p-4">
+                                    <p class="text-xs font-bold uppercase tracking-[0.18em] text-[#63d8f2]">Tanggal</p>
+                                    <p class="mt-2 text-base font-bold text-white">{{ $event['date_range'] }}</p>
+                                </div>
+                                <div class="rounded-2xl border border-white/10 bg-white/10 p-4">
+                                    <p class="text-xs font-bold uppercase tracking-[0.18em] text-[#63d8f2]">Lokasi</p>
+                                    <p class="mt-2 text-base font-bold text-white">{{ $event['location'] }}</p>
+                                </div>
+                            </div>
+                            <div class="relative pt-8">
+                                <div class="flex flex-wrap items-end justify-between gap-3">
+                                    <div>
+                                        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#f7c95c]">Agenda terdaftar</p>
+                                        <h3 class="mt-2 font-serif text-2xl font-bold text-white">Jadwal pilihanmu</h3>
+                                    </div>
+                                    <p class="text-sm text-white/50">{{ count($ticket['schedule']) }} kegiatan terpilih</p>
+                                </div>
+                                <div class="mt-5 grid gap-4 sm:grid-cols-2">
                                 @foreach ($ticket['schedule'] as $schedule)
-                                    <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-                                        <p class="text-xs font-bold text-[#63d8f2]">{{ config("event.schedules.{$schedule}.day") }} · {{ config("event.schedules.{$schedule}.time") }}</p>
-                                        <p class="mt-1 text-sm font-semibold text-white">{{ config("event.schedules.{$schedule}.title") }}</p>
+                                    <div class="rounded-2xl border border-white/15 bg-white/10 p-5">
+                                        <p class="text-sm font-bold text-[#63d8f2]">{{ config("event.schedules.{$schedule}.day") }} · {{ config("event.schedules.{$schedule}.time") }}</p>
+                                        <p class="mt-2 text-base font-semibold leading-6 text-white">{{ config("event.schedules.{$schedule}.title") }}</p>
                                     </div>
                                 @endforeach
+                                </div>
                             </div>
-                            <p class="relative mt-5 text-xs text-white/45">Simpan kode ini dan tunjukkan saat registrasi ulang di lokasi acara.</p>
+                            <div class="relative mt-8 flex flex-col gap-3 rounded-2xl border border-[#f7c95c]/25 bg-[#f7c95c]/10 p-5 sm:flex-row sm:items-center sm:justify-between">
+                                <p class="text-sm leading-6 text-white/75"><strong class="text-[#f7c95c]">Simpan tiket ini.</strong><br>Tunjukkan kode tiket saat registrasi ulang di lokasi acara.</p>
+                                <img src="{{ asset('images/ikanpausikanpindang-mascot.jpeg') }}" alt="Maskot Ikanpausikanpindang" class="h-16 w-16 rounded-full border-2 border-[#a6f0ff]/70 object-cover">
+                            </div>
                         </div>
                     @endif
 

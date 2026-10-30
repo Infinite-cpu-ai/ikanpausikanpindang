@@ -10,8 +10,9 @@
     <body class="min-h-screen overflow-x-hidden bg-[#031c35] text-white antialiased">
         <header class="absolute inset-x-0 top-0 z-30 border-b border-white/10 bg-[#031c35]/30 backdrop-blur-md">
             <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8" aria-label="Navigasi utama">
-                <a href="#beranda" class="font-serif text-xl font-bold tracking-tight">
-                    ikanpaus<span class="text-[#63d8f2]">ikanpindang</span>
+                <a href="#beranda" class="flex items-center gap-3 font-serif text-xl font-bold tracking-tight">
+                    <img src="{{ asset('images/ikanpausikanpindang-mascot.jpeg') }}" alt="Maskot Ikanpausikanpindang" class="h-11 w-11 rounded-full border border-[#63d8f2]/60 object-cover">
+                    <span>ikanpaus<span class="text-[#63d8f2]">ikanpindang</span></span>
                 </a>
                 <div class="flex items-center gap-6 text-sm font-semibold text-white/75">
                     <a href="#acara" class="hidden transition hover:text-[#63d8f2] sm:block">Tentang acara</a>
@@ -52,7 +53,7 @@
                         <div class="relative rounded-[2rem] border border-white/20 bg-white/10 p-4 shadow-2xl backdrop-blur-sm">
                             <div class="flex aspect-[4/5] flex-col justify-between overflow-hidden rounded-[1.4rem] bg-gradient-to-b from-[#107da0] via-[#075273] to-[#032744] p-7">
                                 <div class="flex justify-between text-xs font-bold uppercase tracking-widest text-[#a6f0ff]"><span>LB / 26</span><span>✦</span></div>
-                                <div><div class="mb-4 text-7xl" aria-hidden="true">🐋</div><p class="font-serif text-4xl font-bold leading-tight">Temui laut dari sisi yang berbeda.</p></div>
+                                <div><img src="{{ asset('images/ikanpausikanpindang-mascot.jpeg') }}" alt="Maskot Ikanpausikanpindang" class="mx-auto mb-5 h-52 w-52 rounded-full border-4 border-[#a6f0ff]/80 object-cover shadow-xl"><p class="font-serif text-4xl font-bold leading-tight">Temui laut dari sisi yang berbeda.</p></div>
                                 <div class="border-t border-white/20 pt-4 text-sm text-white/65">{{ $event['location'] }}<br>{{ $event['date_range'] }} · 08.00–21.00 WIB</div>
                             </div>
                         </div>

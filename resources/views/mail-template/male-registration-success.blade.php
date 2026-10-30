@@ -25,15 +25,15 @@
                     <table role="presentation" class="email-shell" width="600" cellspacing="0" cellpadding="0" border="0" style="width: 600px; max-width: 600px;">
                         <tr>
                             <td style="padding: 0 0 16px 4px; color: #0b6580; font-size: 13px; font-weight: bold; letter-spacing: 1.5px; text-transform: uppercase;">
-                                ikanpaus<span style="color: #0b86a4;">ikanpindang</span>
+                                Ikanpausikanpindang
                             </td>
                         </tr>
                         <tr>
                             <td style="overflow: hidden; border-radius: 24px 24px 0 0; background: #031c35;">
                                 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
                                     <tr>
-                                        <td style="padding: 42px 38px 44px; background: linear-gradient(135deg, #031c35 0%, #075273 62%, #0b86a4 100%);">
-                                            <div style="margin-bottom: 22px; color: #a6f0ff; font-size: 42px; line-height: 1;" aria-hidden="true">✦</div>
+                                        <td style="padding: 32px 38px 36px; background: linear-gradient(135deg, #031c35 0%, #075273 62%, #0b86a4 100%);">
+                                            <img src="{{ asset('images/ikanpausikanpindang-mascot.jpeg') }}" width="180" alt="Maskot Ikanpausikanpindang" style="display: block; width: 180px; height: 180px; object-fit: cover; border: 5px solid #a6f0ff; border-radius: 999px; background: #eafcff;">
                                             <p style="margin: 0 0 12px; color: #f7c95c; font-size: 12px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase;">Registrasi terkonfirmasi</p>
                                             <h1 class="hero-title" style="margin: 0; color: #ffffff; font-size: 38px; line-height: 1.1;">Sampai jumpa di laut.</h1>
                                             <p style="margin: 16px 0 0; color: #d9faff; font-size: 16px; line-height: 1.6;">Tempatmu sudah aman untuk pengalaman pesisir yang penuh cerita.</p>
@@ -63,9 +63,9 @@
                                 @foreach ($registration['schedule'] as $schedule)
                                     <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom: 10px; border: 1px solid #d6e8ed; border-radius: 14px; background: #ffffff;">
                                         <tr>
-                                            <td class="schedule-cell" width="92" style="padding: 15px; vertical-align: top; color: #0b86a4; font-size: 13px; font-weight: bold; line-height: 1.4;">
+                                            <td class="schedule-cell" width="150" style="padding: 17px; vertical-align: top; color: #0b86a4; font-size: 13px; font-weight: bold; line-height: 1.5;">
                                                 {{ config("event.schedules.{$schedule}.day") }}<br>
-                                                <span style="color: #082f4d;">{{ config("event.schedules.{$schedule}.time") }}</span>
+                                                <span style="color: #082f4d; font-size: 15px;">{{ config("event.schedules.{$schedule}.time") }} WIB</span>
                                             </td>
                                             <td class="schedule-cell" style="padding: 15px 15px 15px 0; vertical-align: top; color: #557084; font-size: 14px; line-height: 1.5;">
                                                 <strong style="color: #082f4d;">{{ config("event.schedules.{$schedule}.title") }}</strong><br>
