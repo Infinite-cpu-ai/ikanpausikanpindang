@@ -33,19 +33,27 @@
                                                 <p style="margin: 4px 0 0; color: #f7c95c; font-size: 12px; font-weight: bold; letter-spacing: 4px;">IKANPINDANG</p>
                                                 <p style="margin: 10px 0 0; color: #a6f0ff; font-size: 10px; letter-spacing: 2px; text-transform: uppercase;">Festival laut &amp; konservasi</p>
                                             </div>
-                                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin: 0 0 22px;">
+                                            <table role="presentation" class="email-bubbles" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin: 0 0 22px;">
                                                 <tr>
-                                                    <td style="color: #bceff8; font-size: 24px; line-height: 1;">○</td>
-                                                    <td align="center" style="color: #63d8f2; font-size: 15px; line-height: 1;">○</td>
-                                                    <td align="right" style="color: #a6f0ff; font-size: 30px; line-height: 1;">○</td>
-                                                    <td align="center" style="color: #63d8f2; font-size: 12px; line-height: 1;">○</td>
-                                                    <td align="right" style="color: #bceff8; font-size: 20px; line-height: 1;">○</td>
+                                                    <td style="height: 30px; vertical-align: top;"><div style="width: 18px; height: 18px; border: 2px solid #bceff8; border-radius: 50%; font-size: 0; line-height: 0;"></div></td>
+                                                    <td align="center" style="vertical-align: top;"><div style="width: 8px; height: 8px; border: 1px solid #63d8f2; border-radius: 50%; font-size: 0; line-height: 0;"></div></td>
+                                                    <td align="right" style="vertical-align: top;"><div style="width: 24px; height: 24px; border: 2px solid #a6f0ff; border-radius: 50%; font-size: 0; line-height: 0;"></div></td>
+                                                    <td align="center" style="vertical-align: top;"><div style="width: 6px; height: 6px; border: 1px solid #63d8f2; border-radius: 50%; font-size: 0; line-height: 0;"></div></td>
+                                                    <td align="right" style="vertical-align: top;"><div style="width: 14px; height: 14px; border: 2px solid #bceff8; border-radius: 50%; font-size: 0; line-height: 0;"></div></td>
                                                 </tr>
                                             </table>
                                             <p style="margin: 0 0 14px; color: #f7c95c; font-size: 12px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase;">Registrasi terkonfirmasi</p>
                                             <h1 class="hero-title" style="margin: 0; color: #ffffff; font-size: 40px; line-height: 1.1;">Pendaftaran berhasil!</h1>
                                             <p style="margin: 16px 0 0; color: #d9faff; font-size: 16px; line-height: 1.6;">Tiket invitation kamu sudah siap untuk {{ config('event.name') }}.</p>
-                                            <p style="margin: 22px 0 0; color: #8deaff; font-size: 19px; letter-spacing: 7px; line-height: 1;">〰〰〰〰〰〰〰</p>
+                                            <table role="presentation" class="email-wave" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 24px;">
+                                                <tr>
+                                                    <td style="height: 13px; border-radius: 50% 50% 0 0; background: #38c4df; font-size: 0; line-height: 0;">&nbsp;</td>
+                                                    <td style="height: 20px; border-radius: 50% 50% 0 0; background: #63d8f2; font-size: 0; line-height: 0;">&nbsp;</td>
+                                                    <td style="height: 13px; border-radius: 50% 50% 0 0; background: #38c4df; font-size: 0; line-height: 0;">&nbsp;</td>
+                                                    <td style="height: 20px; border-radius: 50% 50% 0 0; background: #63d8f2; font-size: 0; line-height: 0;">&nbsp;</td>
+                                                    <td style="height: 13px; border-radius: 50% 50% 0 0; background: #38c4df; font-size: 0; line-height: 0;">&nbsp;</td>
+                                                </tr>
+                                            </table>
                                         </td>
                                     </tr>
                                 </table>
@@ -101,6 +109,25 @@
                                                     <td style="border-radius: 999px; background: #f7c95c;">
                                                         <a href="{{ route('registrations.ticket', ['ticketCode' => $registration['ticket_code']]) }}" style="display: inline-block; padding: 15px 26px; color: #032744; font-size: 14px; font-weight: bold; text-decoration: none;">Buka tiket invitation</a>
                                                     </td>
+                                                </tr>
+                                            </table>
+
+                                            <table role="presentation" class="email-bubbles email-bubbles-large" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 38px; border-top: 1px solid #21627f; padding-top: 18px;">
+                                                <tr>
+                                                    <td style="height: 58px; vertical-align: bottom;"><div style="width: 42px; height: 42px; border: 2px solid #63d8f2; border-radius: 50%; background: rgba(99, 216, 242, 0.08); font-size: 0; line-height: 0;"></div></td>
+                                                    <td align="center" style="vertical-align: top;"><div style="width: 15px; height: 15px; border: 2px solid #bceff8; border-radius: 50%; font-size: 0; line-height: 0;"></div></td>
+                                                    <td align="center" style="vertical-align: bottom;"><div style="width: 28px; height: 28px; border: 2px solid #38c4df; border-radius: 50%; background: rgba(56, 196, 223, 0.08); font-size: 0; line-height: 0;"></div></td>
+                                                    <td align="right" style="vertical-align: top;"><div style="width: 10px; height: 10px; border: 1px solid #a6f0ff; border-radius: 50%; font-size: 0; line-height: 0;"></div></td>
+                                                    <td align="right" style="vertical-align: bottom;"><div style="width: 58px; height: 58px; border: 2px solid #63d8f2; border-radius: 50%; background: rgba(99, 216, 242, 0.08); font-size: 0; line-height: 0;"></div></td>
+                                                </tr>
+                                            </table>
+                                            <table role="presentation" class="email-wave email-wave-large" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 14px;">
+                                                <tr>
+                                                    <td style="height: 22px; border-radius: 50% 50% 0 0; background: #155878; font-size: 0; line-height: 0;">&nbsp;</td>
+                                                    <td style="height: 34px; border-radius: 50% 50% 0 0; background: #1d6b8c; font-size: 0; line-height: 0;">&nbsp;</td>
+                                                    <td style="height: 25px; border-radius: 50% 50% 0 0; background: #155878; font-size: 0; line-height: 0;">&nbsp;</td>
+                                                    <td style="height: 34px; border-radius: 50% 50% 0 0; background: #1d6b8c; font-size: 0; line-height: 0;">&nbsp;</td>
+                                                    <td style="height: 22px; border-radius: 50% 50% 0 0; background: #155878; font-size: 0; line-height: 0;">&nbsp;</td>
                                                 </tr>
                                             </table>
                                         </td>

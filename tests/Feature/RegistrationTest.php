@@ -119,7 +119,13 @@ it('renders a polished confirmation email with registration details', function (
         ->toContain('Buka tiket invitation')
         ->toContain('Pendaftaran berhasil!')
         ->toContain('Registrasi &amp; sarapan pesisir')
-        ->toContain('Saya siap bergabung.');
+        ->toContain('Saya siap bergabung.')
+        ->toContain('email-bubbles-large')
+        ->toContain('email-wave-large')
+        ->not->toContain('🌊')
+        ->not->toContain('🫧')
+        ->not->toContain('○')
+        ->not->toContain('〰');
 });
 
 it('rejects invalid registration data without sending email', function () {
