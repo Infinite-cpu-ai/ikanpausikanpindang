@@ -45,16 +45,16 @@
                                             <p style="margin: 0 0 14px; color: #f7c95c; font-size: 12px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase;">Registrasi terkonfirmasi</p>
                                             <h1 class="hero-title" style="margin: 0; color: #ffffff; font-size: 40px; line-height: 1.1;">Pendaftaran berhasil!</h1>
                                             <p style="margin: 16px 0 0; color: #d9faff; font-size: 16px; line-height: 1.6;">Tiket invitation kamu sudah siap untuk {{ config('event.name') }}.</p>
-                                            <table role="presentation" class="email-wave" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 24px;">
-                                                <tr>
-                                                    <td style="height: 13px; border-radius: 50% 50% 0 0; background: #38c4df; font-size: 0; line-height: 0;">&nbsp;</td>
-                                                    <td style="height: 20px; border-radius: 50% 50% 0 0; background: #63d8f2; font-size: 0; line-height: 0;">&nbsp;</td>
-                                                    <td style="height: 13px; border-radius: 50% 50% 0 0; background: #38c4df; font-size: 0; line-height: 0;">&nbsp;</td>
-                                                    <td style="height: 20px; border-radius: 50% 50% 0 0; background: #63d8f2; font-size: 0; line-height: 0;">&nbsp;</td>
-                                                    <td style="height: 13px; border-radius: 50% 50% 0 0; background: #38c4df; font-size: 0; line-height: 0;">&nbsp;</td>
-                                                </tr>
-                                            </table>
                                         </td>
+                                    </tr>
+                                </table>
+                                <table role="presentation" class="wave-transition" width="100%" cellspacing="0" cellpadding="0" border="0" style="background: #0b86a4;">
+                                    <tr>
+                                        <td style="height: 14px; border-radius: 50% 50% 0 0; background: #082f4d; font-size: 0; line-height: 0;">&nbsp;</td>
+                                        <td style="height: 23px; border-radius: 50% 50% 0 0; background: #082f4d; font-size: 0; line-height: 0;">&nbsp;</td>
+                                        <td style="height: 17px; border-radius: 50% 50% 0 0; background: #082f4d; font-size: 0; line-height: 0;">&nbsp;</td>
+                                        <td style="height: 23px; border-radius: 50% 50% 0 0; background: #082f4d; font-size: 0; line-height: 0;">&nbsp;</td>
+                                        <td style="height: 14px; border-radius: 50% 50% 0 0; background: #082f4d; font-size: 0; line-height: 0;">&nbsp;</td>
                                     </tr>
                                 </table>
                                 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background: #082f4d;">
@@ -112,16 +112,16 @@
                                                 </tr>
                                             </table>
 
-                                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 28px; border-top: 1px solid #21627f; padding-top: 14px;">
-                                                <tr>
-                                                    <td style="height: 12px; border-radius: 50% 50% 0 0; background: #155878; font-size: 0; line-height: 0;">&nbsp;</td>
-                                                    <td style="height: 18px; border-radius: 50% 50% 0 0; background: #1d6b8c; font-size: 0; line-height: 0;">&nbsp;</td>
-                                                    <td style="height: 12px; border-radius: 50% 50% 0 0; background: #155878; font-size: 0; line-height: 0;">&nbsp;</td>
-                                                    <td style="height: 18px; border-radius: 50% 50% 0 0; background: #1d6b8c; font-size: 0; line-height: 0;">&nbsp;</td>
-                                                    <td style="height: 12px; border-radius: 50% 50% 0 0; background: #155878; font-size: 0; line-height: 0;">&nbsp;</td>
-                                                </tr>
-                                            </table>
                                         </td>
+                                    </tr>
+                                </table>
+                                <table role="presentation" class="wave-transition wave-transition-footer" width="100%" cellspacing="0" cellpadding="0" border="0" style="background: #082f4d;">
+                                    <tr>
+                                        <td style="height: 12px; border-radius: 50% 50% 0 0; background: #031c35; font-size: 0; line-height: 0;">&nbsp;</td>
+                                        <td style="height: 19px; border-radius: 50% 50% 0 0; background: #031c35; font-size: 0; line-height: 0;">&nbsp;</td>
+                                        <td style="height: 14px; border-radius: 50% 50% 0 0; background: #031c35; font-size: 0; line-height: 0;">&nbsp;</td>
+                                        <td style="height: 19px; border-radius: 50% 50% 0 0; background: #031c35; font-size: 0; line-height: 0;">&nbsp;</td>
+                                        <td style="height: 12px; border-radius: 50% 50% 0 0; background: #031c35; font-size: 0; line-height: 0;">&nbsp;</td>
                                     </tr>
                                 </table>
                                 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
