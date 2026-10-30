@@ -3,193 +3,113 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Daftar untuk Laut Bercerita, festival pengalaman laut dan konservasi Ikanpausikanpindang.">
-        <title>Laut Bercerita 2026 - {{ config('app.name', 'Ikanpausikanpindang') }}</title>
+        <meta name="description" content="Form registrasi Laut Bercerita 2026 bersama Ikanpausikanpindang.">
+        <title>Daftar Laut Bercerita 2026 - {{ config('app.name', 'Ikanpausikanpindang') }}</title>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="min-h-screen overflow-x-hidden bg-[#031c35] text-white antialiased">
-        <header class="absolute inset-x-0 top-0 z-30 border-b border-white/10 bg-[#031c35]/30 backdrop-blur-md">
+    <body class="min-h-screen overflow-x-hidden bg-gradient-to-b from-[#031c35] via-[#06466a] to-[#e9fbff] text-white antialiased">
+        <header class="relative z-30 border-b border-white/10 bg-[#031c35]/80 backdrop-blur-md">
             <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8" aria-label="Navigasi utama">
                 <a href="{{ route('home') }}" class="font-serif text-xl font-bold tracking-tight">
                     ikanpaus<span class="text-[#63d8f2]">ikanpindang</span>
                 </a>
                 <div class="flex items-center gap-6 text-sm font-semibold text-white/75">
-                    <a href="#jadwal" class="hidden transition hover:text-[#63d8f2] sm:block">Jadwal</a>
-                    <a href="#tentang" class="hidden transition hover:text-[#63d8f2] sm:block">Tentang acara</a>
-                    <a href="{{ route('home') }}" class="transition hover:text-[#63d8f2]">Beranda</a>
+                    <a href="{{ route('home') }}#acara" class="hidden transition hover:text-[#63d8f2] sm:block">Tentang acara</a>
+                    <a href="{{ route('home') }}#jadwal" class="hidden transition hover:text-[#63d8f2] sm:block">Jadwal</a>
+                    <a href="{{ route('registrations.create') }}" class="rounded-full bg-[#f7c95c] px-4 py-2 text-[#032744]">Daftar</a>
                 </div>
             </nav>
         </header>
 
-        <main>
-            <section class="relative isolate min-h-[720px] overflow-hidden bg-gradient-to-b from-[#031c35] via-[#06466a] to-[#0b86a4]">
-                <div class="absolute inset-0 opacity-30" style="background-image: radial-gradient(circle at 20% 20%, #8deaff 0 1px, transparent 1px), radial-gradient(circle at 80% 60%, #8deaff 0 1px, transparent 1px); background-size: 80px 80px, 120px 120px;"></div>
-                <div class="bubble absolute bottom-16 left-[12%] h-3 w-3 rounded-full border border-white/60"></div>
-                <div class="bubble bubble-delay-1 absolute bottom-20 left-[28%] h-5 w-5 rounded-full border border-white/50"></div>
-                <div class="bubble bubble-delay-2 absolute bottom-10 left-[66%] h-4 w-4 rounded-full border border-white/50"></div>
-                <div class="bubble bubble-delay-3 absolute bottom-24 right-[12%] h-2 w-2 rounded-full border border-white/70"></div>
+        <main class="relative px-6 py-14 sm:py-20 lg:px-8">
+            <div class="bubble absolute left-[14%] top-24 h-4 w-4 rounded-full border border-white/60"></div>
+            <div class="bubble bubble-delay-1 absolute right-[18%] top-48 h-3 w-3 rounded-full border border-white/60"></div>
+            <div class="bubble bubble-delay-2 absolute bottom-28 left-[30%] h-5 w-5 rounded-full border border-white/50"></div>
 
-                <div class="relative mx-auto grid max-w-7xl gap-12 px-6 pb-36 pt-40 lg:grid-cols-[1.1fr_.9fr] lg:items-center lg:px-8">
-                    <div class="max-w-3xl">
-                        <p class="mb-6 inline-flex rounded-full border border-[#63d8f2]/40 bg-[#63d8f2]/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.25em] text-[#a6f0ff]">
-                            Festival laut & konservasi · 14–15 Juni 2026
-                        </p>
-                        <h1 class="font-serif text-5xl font-bold leading-[.98] tracking-tight sm:text-7xl">
-                            Laut <span class="text-[#63d8f2]">bercerita.</span><br>
-                            Kamu jadi bagiannya.
-                        </h1>
-                        <p class="mt-7 max-w-xl text-lg leading-8 text-white/75">
-                            Dua hari untuk menyelam lebih dekat ke budaya pesisir, mencicipi rasa laut, dan bergerak bersama menjaga laut Indonesia.
-                        </p>
-                        <div class="mt-9 flex flex-wrap gap-4">
-                            <a href="#formulir" class="rounded-full bg-[#f7c95c] px-6 py-3.5 font-bold text-[#032744] transition hover:-translate-y-1 hover:bg-[#ffe18d]">Daftar acara <span aria-hidden="true">→</span></a>
-                            <a href="#jadwal" class="rounded-full border border-white/25 px-6 py-3.5 font-bold text-white transition hover:border-[#63d8f2] hover:text-[#a6f0ff]">Lihat jadwal</a>
+            <div class="relative mx-auto max-w-3xl">
+                <div class="text-center">
+                    <p class="text-sm font-bold uppercase tracking-[0.25em] text-[#a6f0ff]">Registrasi peserta</p>
+                    <h1 class="mt-4 font-serif text-4xl font-bold leading-tight sm:text-6xl">Amankan tempatmu di Laut Bercerita.</h1>
+                    <p class="mx-auto mt-5 max-w-xl text-lg leading-8 text-white/70">Isi data berikut untuk ikut festival laut, budaya pesisir, dan konservasi pada 14–15 Juni 2026 di Pantai Tanjung Biru.</p>
+                </div>
+
+                <div class="mt-12 rounded-[2rem] border border-white/20 bg-white p-6 text-[#032744] shadow-2xl shadow-[#031c35]/30 sm:p-10">
+                    @if (session('registration_submitted'))
+                        <div class="mb-8 rounded-2xl border border-[#0b86a4]/20 bg-[#bceff8] p-5" role="status">
+                            <p class="font-semibold">Pendaftaran berhasil dikirim.</p>
+                            <p class="mt-1 text-sm text-[#032744]/70">Silakan cek inbox email untuk konfirmasi.</p>
                         </div>
-                    </div>
+                    @endif
 
-                    <div class="ocean-drift relative mx-auto w-full max-w-sm">
-                        <div class="absolute -inset-8 rounded-full bg-[#63d8f2]/20 blur-3xl"></div>
-                        <div class="relative rounded-[2rem] border border-white/20 bg-white/10 p-4 shadow-2xl backdrop-blur-sm">
-                            <div class="flex aspect-[4/5] flex-col justify-between overflow-hidden rounded-[1.4rem] bg-gradient-to-b from-[#107da0] via-[#075273] to-[#032744] p-7">
-                                <div class="flex justify-between text-xs font-bold uppercase tracking-widest text-[#a6f0ff]">
-                                    <span>LB / 26</span><span>✦</span>
-                                </div>
-                                <div>
-                                    <div class="mb-4 text-7xl" aria-hidden="true">🐋</div>
-                                    <p class="font-serif text-4xl font-bold leading-tight">Temui laut dari sisi yang berbeda.</p>
-                                </div>
-                                <div class="border-t border-white/20 pt-4 text-sm text-white/65">
-                                    Pantai Tanjung Biru<br>
-                                    14–15 Juni 2026 · 08.00–21.00 WIB
-                                </div>
+                    @if ($errors->any())
+                        <div class="mb-8 rounded-2xl border border-red-300 bg-red-50 p-5 text-red-800" role="alert">
+                            <p class="font-semibold">Periksa kembali data berikut:</p>
+                            <ul class="mt-2 list-inside list-disc text-sm">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    <form method="POST" action="{{ route('registrations.store') }}" class="space-y-5">
+                        @csrf
+                        <div class="grid gap-5 sm:grid-cols-2">
+                            <div>
+                                <label for="name" class="block text-sm font-semibold">Nama lengkap</label>
+                                <input id="name" name="name" type="text" value="{{ old('name') }}" required maxlength="120" autocomplete="name" class="mt-2 block w-full rounded-xl border border-[#032744]/15 px-4 py-3 outline-none transition focus:border-[#0b86a4] focus:ring-2 focus:ring-[#0b86a4]/20">
+                                @error('name')<p class="mt-1 text-sm text-red-700">{{ $message }}</p>@enderror
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-semibold">Email</label>
+                                <input id="email" name="email" type="email" value="{{ old('email') }}" required maxlength="255" autocomplete="email" class="mt-2 block w-full rounded-xl border border-[#032744]/15 px-4 py-3 outline-none transition focus:border-[#0b86a4] focus:ring-2 focus:ring-[#0b86a4]/20">
+                                @error('email')<p class="mt-1 text-sm text-red-700">{{ $message }}</p>@enderror
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-semibold">Nomor telepon</label>
+                                <input id="phone" name="phone" type="tel" value="{{ old('phone') }}" required maxlength="30" autocomplete="tel" class="mt-2 block w-full rounded-xl border border-[#032744]/15 px-4 py-3 outline-none transition focus:border-[#0b86a4] focus:ring-2 focus:ring-[#0b86a4]/20">
+                                @error('phone')<p class="mt-1 text-sm text-red-700">{{ $message }}</p>@enderror
+                            </div>
+                            <div>
+                                <label for="birth_date" class="block text-sm font-semibold">Tanggal lahir</label>
+                                <input id="birth_date" name="birth_date" type="date" value="{{ old('birth_date') }}" max="{{ now()->subDay()->toDateString() }}" required class="mt-2 block w-full rounded-xl border border-[#032744]/15 px-4 py-3 outline-none transition focus:border-[#0b86a4] focus:ring-2 focus:ring-[#0b86a4]/20">
+                                @error('birth_date')<p class="mt-1 text-sm text-red-700">{{ $message }}</p>@enderror
                             </div>
                         </div>
-                    </div>
-                </div>
 
-                <div class="absolute bottom-0 left-0 flex w-[200%] text-[#e9fbff] wave-slide" aria-hidden="true">
-                    <svg class="h-28 w-1/2 shrink-0" viewBox="0 0 1440 120" preserveAspectRatio="none">
-                        <path fill="currentColor" d="M0 64c120-50 240-50 360 0s240 50 360 0 240-50 360 0 240 50 360 0v56H0z"/>
-                    </svg>
-                    <svg class="h-28 w-1/2 shrink-0" viewBox="0 0 1440 120" preserveAspectRatio="none">
-                        <path fill="currentColor" d="M0 64c120-50 240-50 360 0s240 50 360 0 240-50 360 0 240 50 360 0v56H0z"/>
-                    </svg>
-                </div>
-            </section>
+                        <fieldset>
+                            <legend class="text-sm font-semibold">Jenis kelamin</legend>
+                            <div class="mt-3 flex gap-6 text-sm">
+                                <label class="flex items-center gap-2"><input type="radio" name="gender" value="male" @checked(old('gender') === 'male') required> Laki-laki</label>
+                                <label class="flex items-center gap-2"><input type="radio" name="gender" value="female" @checked(old('gender') === 'female')> Perempuan</label>
+                            </div>
+                            @error('gender')<p class="mt-1 text-sm text-red-700">{{ $message }}</p>@enderror
+                        </fieldset>
 
-            <section id="tentang" class="bg-[#e9fbff] py-20 text-[#032744] lg:py-28">
-                <div class="mx-auto max-w-7xl px-6 lg:px-8">
-                    <div class="grid gap-12 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
                         <div>
-                            <p class="text-sm font-bold uppercase tracking-[0.25em] text-[#0b86a4]">Tentang acara</p>
-                            <h2 class="mt-4 font-serif text-4xl font-bold leading-tight sm:text-5xl">Satu akhir pekan. Banyak cerita.</h2>
+                            <label for="address" class="block text-sm font-semibold">Alamat</label>
+                            <textarea id="address" name="address" rows="3" required maxlength="500" autocomplete="street-address" class="mt-2 block w-full rounded-xl border border-[#032744]/15 px-4 py-3 outline-none transition focus:border-[#0b86a4] focus:ring-2 focus:ring-[#0b86a4]/20">{{ old('address') }}</textarea>
+                            @error('address')<p class="mt-1 text-sm text-red-700">{{ $message }}</p>@enderror
                         </div>
-                        <p class="max-w-2xl text-lg leading-8 text-[#032744]/65">Laut Bercerita adalah ruang temu untuk siapa pun yang ingin mengenal laut lebih dekat. Ikuti lokakarya, pertunjukan, jelajah kuliner, dan aksi nyata bersama komunitas pesisir.</p>
-                    </div>
-                    <div class="mt-12 grid gap-5 md:grid-cols-3">
-                        <article class="rounded-3xl bg-white p-7 shadow-lg shadow-[#0b86a4]/10">
-                            <span class="text-4xl" aria-hidden="true">🤿</span>
-                            <h3 class="mt-8 font-serif text-2xl font-bold">Jelajah bawah laut</h3>
-                            <p class="mt-3 leading-7 text-[#032744]/60">Kenali ekosistem terumbu karang bersama penyelam dan pegiat konservasi.</p>
-                        </article>
-                        <article class="rounded-3xl bg-[#bceff8] p-7">
-                            <span class="text-4xl" aria-hidden="true">🎶</span>
-                            <h3 class="mt-8 font-serif text-2xl font-bold">Senja di pesisir</h3>
-                            <p class="mt-3 leading-7 text-[#032744]/60">Nikmati musik, cerita nelayan, dan langit senja dengan komunitas baru.</p>
-                        </article>
-                        <article class="rounded-3xl bg-[#06385a] p-7 text-white">
-                            <span class="text-4xl" aria-hidden="true">♻️</span>
-                            <h3 class="mt-8 font-serif text-2xl font-bold">Aksi biru</h3>
-                            <p class="mt-3 leading-7 text-white/65">Bawa pulang kebiasaan kecil yang berdampak besar untuk laut kita.</p>
-                        </article>
-                    </div>
-                </div>
-            </section>
 
-            <section id="jadwal" class="bg-[#06385a] py-20 lg:py-28">
-                <div class="mx-auto max-w-7xl px-6 lg:px-8">
-                    <div class="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
                         <div>
-                            <p class="text-sm font-bold uppercase tracking-[0.25em] text-[#63d8f2]">Agenda utama</p>
-                            <h2 class="mt-4 font-serif text-4xl font-bold sm:text-5xl">Ikuti alirannya.</h2>
+                            <label for="notes" class="block text-sm font-semibold">Catatan <span class="font-normal text-[#032744]/50">(opsional)</span></label>
+                            <textarea id="notes" name="notes" rows="3" maxlength="1000" class="mt-2 block w-full rounded-xl border border-[#032744]/15 px-4 py-3 outline-none transition focus:border-[#0b86a4] focus:ring-2 focus:ring-[#0b86a4]/20">{{ old('notes') }}</textarea>
+                            @error('notes')<p class="mt-1 text-sm text-red-700">{{ $message }}</p>@enderror
                         </div>
-                        <p class="max-w-sm text-white/60">Pilih kegiatan favoritmu, lalu amankan tempat sebelum penuh.</p>
-                    </div>
-                    <div class="mt-12 grid gap-5 lg:grid-cols-2">
-                        <div class="rounded-3xl border border-white/10 bg-white/5 p-7">
-                            <div class="flex items-center justify-between border-b border-white/10 pb-5">
-                                <div><p class="text-sm text-[#63d8f2]">SABTU</p><p class="mt-1 text-2xl font-bold">14 Juni 2026</p></div><span class="rounded-full bg-[#f7c95c] px-3 py-1 text-xs font-bold text-[#032744]">HARI 01</span>
-                            </div>
-                            <div class="divide-y divide-white/10">
-                                <div class="flex gap-5 py-5"><time class="w-16 shrink-0 text-sm font-bold text-[#a6f0ff]">08.00</time><div><h3 class="font-bold">Registrasi & sarapan pesisir</h3><p class="mt-1 text-sm text-white/55">Dermaga utama</p></div></div>
-                                <div class="flex gap-5 py-5"><time class="w-16 shrink-0 text-sm font-bold text-[#a6f0ff]">10.00</time><div><h3 class="font-bold">Bincang: Menjaga laut dari rumah</h3><p class="mt-1 text-sm text-white/55">Panggung utama</p></div></div>
-                                <div class="flex gap-5 py-5"><time class="w-16 shrink-0 text-sm font-bold text-[#a6f0ff]">16.30</time><div><h3 class="font-bold">Sunset acoustic & cerita nelayan</h3><p class="mt-1 text-sm text-white/55">Pantai timur</p></div></div>
-                                <div class="flex gap-5 pt-5"><time class="w-16 shrink-0 text-sm font-bold text-[#a6f0ff]">19.00</time><div><h3 class="font-bold">Malam kuliner laut nusantara</h3><p class="mt-1 text-sm text-white/55">Pasar rasa</p></div></div>
-                            </div>
-                        </div>
-                        <div class="rounded-3xl border border-white/10 bg-white/5 p-7">
-                            <div class="flex items-center justify-between border-b border-white/10 pb-5">
-                                <div><p class="text-sm text-[#63d8f2]">MINGGU</p><p class="mt-1 text-2xl font-bold">15 Juni 2026</p></div><span class="rounded-full bg-[#63d8f2] px-3 py-1 text-xs font-bold text-[#032744]">HARI 02</span>
-                            </div>
-                            <div class="divide-y divide-white/10">
-                                <div class="flex gap-5 py-5"><time class="w-16 shrink-0 text-sm font-bold text-[#a6f0ff]">07.00</time><div><h3 class="font-bold">Beach clean-up bersama</h3><p class="mt-1 text-sm text-white/55">Pantai selatan</p></div></div>
-                                <div class="flex gap-5 py-5"><time class="w-16 shrink-0 text-sm font-bold text-[#a6f0ff]">10.00</time><div><h3 class="font-bold">Workshop fotografi bawah air</h3><p class="mt-1 text-sm text-white/55">Ruang kreatif</p></div></div>
-                                <div class="flex gap-5 py-5"><time class="w-16 shrink-0 text-sm font-bold text-[#a6f0ff]">14.00</time><div><h3 class="font-bold">Pameran karya anak pesisir</h3><p class="mt-1 text-sm text-white/55">Galeri bahari</p></div></div>
-                                <div class="flex gap-5 pt-5"><time class="w-16 shrink-0 text-sm font-bold text-[#a6f0ff]">17.00</time><div><h3 class="font-bold">Penutupan & pelepasan tukik</h3><p class="mt-1 text-sm text-white/55">Pantai utama</p></div></div>
-                            </div>
-                        </div>
-                    </div>
+
+                        <label class="flex items-start gap-3 text-sm text-[#032744]/70">
+                            <input type="checkbox" name="agree" value="1" @checked(old('agree')) required class="mt-1">
+                            <span>Saya menyatakan data yang diisi benar dan menyetujui data ini digunakan untuk pendaftaran acara.</span>
+                        </label>
+                        @error('agree')<p class="-mt-3 text-sm text-red-700">{{ $message }}</p>@enderror
+
+                        <button type="submit" class="w-full rounded-full bg-[#0b86a4] px-6 py-3.5 font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#076b88]">Kirim pendaftaran →</button>
+                    </form>
                 </div>
-            </section>
-
-            <section id="formulir" class="bg-[#e9fbff] py-20 text-[#032744] lg:py-28">
-                <div class="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[.8fr_1.2fr] lg:px-8">
-                    <div>
-                        <p class="text-sm font-bold uppercase tracking-[0.25em] text-[#0b86a4]">Amankan tempatmu</p>
-                        <h2 class="mt-4 font-serif text-4xl font-bold leading-tight sm:text-5xl">Siap ikut arus?</h2>
-                        <p class="mt-5 leading-7 text-[#032744]/65">Isi data di samping. Konfirmasi pendaftaran dan informasi acara akan dikirim ke email kamu.</p>
-                        <div class="mt-8 rounded-2xl border border-[#0b86a4]/20 bg-white p-5">
-                            <p class="text-sm font-bold">📍 Pantai Tanjung Biru</p>
-                            <p class="mt-1 text-sm text-[#032744]/60">14–15 Juni 2026 · 08.00–21.00 WIB</p>
-                        </div>
-                    </div>
-
-                    <div class="rounded-[2rem] bg-white p-6 shadow-xl shadow-[#0b86a4]/10 sm:p-9">
-                        @if (session('registration_submitted'))
-                            <div class="mb-8 rounded-2xl border border-[#0b86a4]/20 bg-[#bceff8] p-5" role="status">
-                                <p class="font-semibold">Pendaftaran berhasil dikirim.</p>
-                                <p class="mt-1 text-sm text-[#032744]/70">Silakan cek inbox email untuk konfirmasi.</p>
-                            </div>
-                        @endif
-                        @if ($errors->any())
-                            <div class="mb-8 rounded-2xl border border-red-300 bg-red-50 p-5 text-red-800" role="alert">
-                                <p class="font-semibold">Periksa kembali data berikut:</p>
-                                <ul class="mt-2 list-inside list-disc text-sm">@foreach ($errors->all() as $error)<li>{{ $error }}</li>@endforeach</ul>
-                            </div>
-                        @endif
-
-                        <form method="POST" action="{{ route('registrations.store') }}" class="space-y-5">
-                            @csrf
-                            <div class="grid gap-5 sm:grid-cols-2">
-                                <div><label for="name" class="block text-sm font-semibold">Nama lengkap</label><input id="name" name="name" type="text" value="{{ old('name') }}" required maxlength="120" autocomplete="name" class="mt-2 block w-full rounded-xl border border-[#032744]/15 px-4 py-3 outline-none transition focus:border-[#0b86a4] focus:ring-2 focus:ring-[#0b86a4]/20">@error('name')<p class="mt-1 text-sm text-red-700">{{ $message }}</p>@enderror</div>
-                                <div><label for="email" class="block text-sm font-semibold">Email</label><input id="email" name="email" type="email" value="{{ old('email') }}" required maxlength="255" autocomplete="email" class="mt-2 block w-full rounded-xl border border-[#032744]/15 px-4 py-3 outline-none transition focus:border-[#0b86a4] focus:ring-2 focus:ring-[#0b86a4]/20">@error('email')<p class="mt-1 text-sm text-red-700">{{ $message }}</p>@enderror</div>
-                                <div><label for="phone" class="block text-sm font-semibold">Nomor telepon</label><input id="phone" name="phone" type="tel" value="{{ old('phone') }}" required maxlength="30" autocomplete="tel" class="mt-2 block w-full rounded-xl border border-[#032744]/15 px-4 py-3 outline-none transition focus:border-[#0b86a4] focus:ring-2 focus:ring-[#0b86a4]/20">@error('phone')<p class="mt-1 text-sm text-red-700">{{ $message }}</p>@enderror</div>
-                                <div><label for="birth_date" class="block text-sm font-semibold">Tanggal lahir</label><input id="birth_date" name="birth_date" type="date" value="{{ old('birth_date') }}" max="{{ now()->subDay()->toDateString() }}" required class="mt-2 block w-full rounded-xl border border-[#032744]/15 px-4 py-3 outline-none transition focus:border-[#0b86a4] focus:ring-2 focus:ring-[#0b86a4]/20">@error('birth_date')<p class="mt-1 text-sm text-red-700">{{ $message }}</p>@enderror</div>
-                            </div>
-                            <fieldset><legend class="text-sm font-semibold">Jenis kelamin</legend><div class="mt-3 flex gap-6 text-sm"><label class="flex items-center gap-2"><input type="radio" name="gender" value="male" @checked(old('gender') === 'male') required> Laki-laki</label><label class="flex items-center gap-2"><input type="radio" name="gender" value="female" @checked(old('gender') === 'female')> Perempuan</label></div>@error('gender')<p class="mt-1 text-sm text-red-700">{{ $message }}</p>@enderror</fieldset>
-                            <div><label for="address" class="block text-sm font-semibold">Alamat</label><textarea id="address" name="address" rows="2" required maxlength="500" autocomplete="street-address" class="mt-2 block w-full rounded-xl border border-[#032744]/15 px-4 py-3 outline-none transition focus:border-[#0b86a4] focus:ring-2 focus:ring-[#0b86a4]/20">{{ old('address') }}</textarea>@error('address')<p class="mt-1 text-sm text-red-700">{{ $message }}</p>@enderror</div>
-                            <div><label for="notes" class="block text-sm font-semibold">Catatan <span class="font-normal text-[#032744]/50">(opsional)</span></label><textarea id="notes" name="notes" rows="2" maxlength="1000" class="mt-2 block w-full rounded-xl border border-[#032744]/15 px-4 py-3 outline-none transition focus:border-[#0b86a4] focus:ring-2 focus:ring-[#0b86a4]/20">{{ old('notes') }}</textarea>@error('notes')<p class="mt-1 text-sm text-red-700">{{ $message }}</p>@enderror</div>
-                            <label class="flex items-start gap-3 text-sm text-[#032744]/70"><input type="checkbox" name="agree" value="1" @checked(old('agree')) required class="mt-1"><span>Saya menyatakan data yang diisi benar dan menyetujui data ini digunakan untuk pendaftaran acara.</span></label>
-                            @error('agree')<p class="-mt-3 text-sm text-red-700">{{ $message }}</p>@enderror
-                            <button type="submit" class="w-full rounded-full bg-[#0b86a4] px-6 py-3.5 font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#076b88]">Kirim pendaftaran →</button>
-                        </form>
-                    </div>
-                </div>
-            </section>
+            </div>
         </main>
 
-        <footer class="bg-[#031c35] px-6 py-8 text-center text-sm text-white/55">
-            <p>© {{ date('Y') }} Ikanpausikanpindang · Laut Bercerita 2026</p>
-        </footer>
+        <footer class="bg-[#031c35] px-6 py-8 text-center text-sm text-white/55"><p>© {{ date('Y') }} Ikanpausikanpindang · Laut Bercerita 2026</p></footer>
     </body>
 </html>
