@@ -51,9 +51,9 @@
                     <div class="ocean-drift relative mx-auto w-full max-w-sm">
                         <div class="absolute -inset-8 rounded-full bg-[#63d8f2]/20 blur-3xl"></div>
                         <div class="relative rounded-[2rem] border border-white/20 bg-white/10 p-4 shadow-2xl backdrop-blur-sm">
-                            <div class="flex aspect-[4/5] flex-col justify-between overflow-hidden rounded-[1.4rem] bg-gradient-to-b from-[#107da0] via-[#075273] to-[#032744] p-7">
-                                <div class="flex justify-between text-xs font-bold uppercase tracking-widest text-[#a6f0ff]"><span>LB / 26</span><span>✦</span></div>
-                                <div><img src="{{ asset('images/ikanpausikanpindang-mascot.jpeg') }}" alt="Maskot Ikanpausikanpindang" class="mx-auto mb-5 h-52 w-52 rounded-full border-4 border-[#a6f0ff]/80 object-cover shadow-xl"><p class="font-serif text-4xl font-bold leading-tight">Temui laut dari sisi yang berbeda.</p></div>
+                            <div class="flex min-h-[700px] flex-col justify-between overflow-hidden rounded-[1.4rem] bg-gradient-to-b from-[#107da0] via-[#075273] to-[#032744] p-7 sm:min-h-[760px]">
+                                <div class="flex justify-between text-xs font-bold uppercase tracking-widest text-[#a6f0ff]"><span>LB / 26</span><span aria-hidden="true">●</span></div>
+                                <div class="py-8"><img src="{{ asset('images/ikanpausikanpindang-mascot.jpeg') }}" alt="Maskot Ikanpausikanpindang" class="mx-auto mb-7 h-48 w-48 rounded-full border-4 border-[#a6f0ff]/80 object-cover shadow-xl sm:h-56 sm:w-56"><p class="font-serif text-3xl font-bold leading-tight sm:text-4xl">Temui laut dari sisi yang berbeda.</p></div>
                                 <div class="border-t border-white/20 pt-4 text-sm text-white/65">{{ $event['location'] }}<br>{{ $event['date_range'] }} · 08.00–21.00 WIB</div>
                             </div>
                         </div>

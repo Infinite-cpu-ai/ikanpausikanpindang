@@ -48,7 +48,7 @@
                             <div class="absolute -bottom-28 -left-20 h-64 w-64 rounded-full bg-[#f7c95c]/10 blur-3xl"></div>
                             <div class="relative flex flex-col gap-8 border-b border-white/15 pb-8 lg:flex-row lg:items-start lg:justify-between">
                                 <div>
-                                    <p class="text-sm font-bold uppercase tracking-[0.25em] text-[#63d8f2]">✦ Tiket invitation resmi</p>
+                                    <p class="text-sm font-bold uppercase tracking-[0.25em] text-[#63d8f2]">Tiket invitation resmi</p>
                                     <h2 class="mt-4 font-serif text-4xl font-bold leading-tight text-white sm:text-5xl">Pendaftaran berhasil!</h2>
                                     <p class="mt-4 max-w-2xl text-base leading-7 text-white/70">Tiketmu sudah siap. Email konfirmasi juga telah dikirim ke <strong class="text-[#d9faff]">{{ $ticket['email'] }}</strong>.</p>
                                 </div>
@@ -107,9 +107,9 @@
                     @endif
 
                     @if (!session('registration_submitted'))
-                    <form method="POST" action="{{ route('registrations.store') }}" class="relative space-y-7">
+                    <form method="POST" action="{{ route('registrations.store') }}" class="relative space-y-6">
                         @csrf
-                        <div class="grid gap-5 sm:grid-cols-2">
+                        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                             <div>
                                 <label for="name" class="block text-sm font-semibold text-[#d9faff]">Nama lengkap</label>
                                 <input id="name" name="name" type="text" value="{{ old('name') }}" required maxlength="120" autocomplete="name" placeholder="Nama sesuai identitas" class="mt-2 block w-full rounded-xl border border-white/15 bg-[#031c35]/60 px-4 py-3 text-white placeholder:text-white/35 outline-none transition focus:border-[#63d8f2] focus:ring-2 focus:ring-[#63d8f2]/20">
@@ -127,7 +127,7 @@
                             </div>
                         </div>
 
-                        <fieldset>
+                        <fieldset class="border-t border-white/10 pt-5">
                             <legend class="text-sm font-semibold text-[#d9faff]">Jenis kelamin</legend>
                             <div class="mt-3 flex gap-3 text-sm">
                                 <label class="flex cursor-pointer items-center gap-2 rounded-full border border-white/15 bg-[#031c35]/50 px-4 py-2.5 transition hover:border-[#63d8f2]"><input type="radio" name="gender" value="male" @checked(old('gender') === 'male') required> Laki-laki</label>
@@ -136,7 +136,7 @@
                             @error('gender')<p class="mt-1 text-sm text-red-700">{{ $message }}</p>@enderror
                         </fieldset>
 
-                        <fieldset>
+                        <fieldset class="border-t border-white/10 pt-5">
                             <legend class="text-sm font-semibold text-[#d9faff]">Pilih jadwal yang ingin kamu ikuti</legend>
                             <p class="mt-1 text-sm text-white/55">Kamu bisa memilih lebih dari satu kegiatan.</p>
                             <div class="mt-4 grid gap-3 sm:grid-cols-2">
