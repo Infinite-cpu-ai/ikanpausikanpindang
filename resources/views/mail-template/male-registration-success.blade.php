@@ -5,47 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pendaftaran berhasil - {{ config('event.name') }}</title>
         <style>
-            @keyframes bubble-rise {
-                0%, 100% { transform: translateY(4px); opacity: .58; }
-                50% { transform: translateY(-10px); opacity: 1; }
-            }
-            @keyframes wave-drift {
-                0%, 100% { transform: translateX(-6px) scaleY(.92); }
-                50% { transform: translateX(6px) scaleY(1.08); }
-            }
-            @keyframes ocean-shimmer {
-                0%, 100% { opacity: .78; }
-                50% { opacity: 1; }
-            }
-            .email-bubbles td > div {
-                animation: bubble-rise 3.8s ease-in-out infinite;
-            }
-            .email-bubbles td:nth-child(2) > div { animation-delay: .35s; }
-            .email-bubbles td:nth-child(3) > div { animation-delay: .7s; }
-            .email-bubbles td:nth-child(4) > div { animation-delay: 1.05s; }
-            .email-bubbles td:nth-child(5) > div { animation-delay: 1.4s; }
-            .email-wave {
-                animation: wave-drift 5s ease-in-out infinite;
-                transform-origin: center;
-            }
-            .email-wave-large {
-                animation-duration: 6.5s;
-                animation-delay: .4s;
-            }
-            .email-wave td {
-                animation: ocean-shimmer 4s ease-in-out infinite;
-            }
-            .email-wave td:nth-child(2),
-            .email-wave td:nth-child(4) {
-                animation-delay: .8s;
-            }
-            @media (prefers-reduced-motion: reduce) {
-                .email-bubbles td > div,
-                .email-wave,
-                .email-wave td {
-                    animation: none !important;
-                }
-            }
             @media only screen and (max-width: 620px) {
                 .email-shell { width: 100% !important; }
                 .email-pad { padding: 28px 20px !important; }
@@ -153,22 +112,13 @@
                                                 </tr>
                                             </table>
 
-                                            <table role="presentation" class="email-bubbles email-bubbles-large" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 38px; border-top: 1px solid #21627f; padding-top: 18px;">
+                                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 28px; border-top: 1px solid #21627f; padding-top: 14px;">
                                                 <tr>
-                                                    <td style="height: 58px; vertical-align: bottom;"><div style="width: 42px; height: 42px; border: 2px solid #63d8f2; border-radius: 50%; background: rgba(99, 216, 242, 0.08); font-size: 0; line-height: 0;"></div></td>
-                                                    <td align="center" style="vertical-align: top;"><div style="width: 15px; height: 15px; border: 2px solid #bceff8; border-radius: 50%; font-size: 0; line-height: 0;"></div></td>
-                                                    <td align="center" style="vertical-align: bottom;"><div style="width: 28px; height: 28px; border: 2px solid #38c4df; border-radius: 50%; background: rgba(56, 196, 223, 0.08); font-size: 0; line-height: 0;"></div></td>
-                                                    <td align="right" style="vertical-align: top;"><div style="width: 10px; height: 10px; border: 1px solid #a6f0ff; border-radius: 50%; font-size: 0; line-height: 0;"></div></td>
-                                                    <td align="right" style="vertical-align: bottom;"><div style="width: 58px; height: 58px; border: 2px solid #63d8f2; border-radius: 50%; background: rgba(99, 216, 242, 0.08); font-size: 0; line-height: 0;"></div></td>
-                                                </tr>
-                                            </table>
-                                            <table role="presentation" class="email-wave email-wave-large" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 14px;">
-                                                <tr>
-                                                    <td style="height: 22px; border-radius: 50% 50% 0 0; background: #155878; font-size: 0; line-height: 0;">&nbsp;</td>
-                                                    <td style="height: 34px; border-radius: 50% 50% 0 0; background: #1d6b8c; font-size: 0; line-height: 0;">&nbsp;</td>
-                                                    <td style="height: 25px; border-radius: 50% 50% 0 0; background: #155878; font-size: 0; line-height: 0;">&nbsp;</td>
-                                                    <td style="height: 34px; border-radius: 50% 50% 0 0; background: #1d6b8c; font-size: 0; line-height: 0;">&nbsp;</td>
-                                                    <td style="height: 22px; border-radius: 50% 50% 0 0; background: #155878; font-size: 0; line-height: 0;">&nbsp;</td>
+                                                    <td style="height: 12px; border-radius: 50% 50% 0 0; background: #155878; font-size: 0; line-height: 0;">&nbsp;</td>
+                                                    <td style="height: 18px; border-radius: 50% 50% 0 0; background: #1d6b8c; font-size: 0; line-height: 0;">&nbsp;</td>
+                                                    <td style="height: 12px; border-radius: 50% 50% 0 0; background: #155878; font-size: 0; line-height: 0;">&nbsp;</td>
+                                                    <td style="height: 18px; border-radius: 50% 50% 0 0; background: #1d6b8c; font-size: 0; line-height: 0;">&nbsp;</td>
+                                                    <td style="height: 12px; border-radius: 50% 50% 0 0; background: #155878; font-size: 0; line-height: 0;">&nbsp;</td>
                                                 </tr>
                                             </table>
                                         </td>
