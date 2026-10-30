@@ -1,44 +1,107 @@
 <!DOCTYPE html>
 <html lang="id">
-    <body style="margin: 0; background: #e9fbff; color: #032744; font-family: Arial, sans-serif; line-height: 1.6;">
-        <div style="max-width: 600px; margin: 0 auto; padding: 32px 20px;">
-            <div style="background: #031c35; border-radius: 20px 20px 0 0; padding: 28px; color: #ffffff;">
-                <p style="margin: 0 0 8px; color: #63d8f2; font-size: 12px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase;">
-                    Ikanpausikanpindang
-                </p>
-                <h1 style="margin: 0; font-size: 28px;">Sampai jumpa di Laut Bercerita!</h1>
-            </div>
-            <div style="background: #ffffff; border-radius: 0 0 20px 20px; padding: 28px;">
-                <p>Halo, <strong>{{ $registration['name'] }}</strong>.</p>
-                <p>Terima kasih sudah mendaftar. Data kamu sudah kami terima dan tempatmu di festival laut Laut Bercerita 2026 sudah tercatat.</p>
-
-                <div style="margin: 24px 0; border-left: 4px solid #0b86a4; padding: 4px 0 4px 16px;">
-                    <p style="margin: 0 0 6px;"><strong>Acara:</strong> {{ config('event.name') }}</p>
-                    <p style="margin: 0 0 6px;"><strong>Waktu:</strong> {{ config('event.date_range') }}</p>
-                    <p style="margin: 0 0 6px;"><strong>Lokasi:</strong> {{ config('event.location') }}</p>
-                    <p style="margin: 0 0 6px;"><strong>Email:</strong> {{ $registration['email'] }}</p>
-                    <p style="margin: 0 0 6px;"><strong>No. telepon:</strong> {{ $registration['phone'] }}</p>
-                    <p style="margin: 6px 0 0;"><strong>Jenis kelamin:</strong> {{ $registration['gender'] === 'male' ? 'Laki-laki' : 'Perempuan' }}</p>
-                </div>
-
-                <p><strong>Jadwal yang dipilih:</strong></p>
-                <ul style="padding-left: 20px;">
-                    @foreach ($registration['schedule'] as $schedule)
-                        <li>
-                            {{ config("event.schedules.{$schedule}.day") }} ·
-                            {{ config("event.schedules.{$schedule}.time") }} —
-                            {{ config("event.schedules.{$schedule}.title") }}
-                        </li>
-                    @endforeach
-                </ul>
-                @if (filled($registration['notes']))
-                    <p><strong>Catatan:</strong><br>{{ $registration['notes'] }}</p>
-                @endif
-                <p style="margin-bottom: 0;">Simpan email ini sebagai bukti pendaftaran. Kami akan menghubungi kamu jika ada informasi berikutnya.</p>
-            </div>
-            <p style="margin: 20px 0 0; color: #03274499; font-size: 12px; text-align: center;">
-                Email ini dikirim otomatis, mohon tidak membalas email ini.
-            </p>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pendaftaran berhasil - {{ config('event.name') }}</title>
+        <style>
+            @media only screen and (max-width: 620px) {
+                .email-shell { width: 100% !important; }
+                .email-pad { padding: 28px 20px !important; }
+                .hero-title { font-size: 30px !important; line-height: 1.15 !important; }
+                .mobile-stack { display: block !important; width: 100% !important; }
+                .schedule-cell { padding: 14px !important; }
+            }
+        </style>
+    </head>
+    <body style="margin: 0; min-width: 100%; background: #e7f7fb; color: #082f4d; font-family: Arial, Helvetica, sans-serif;">
+        <div style="display: none; max-height: 0; overflow: hidden; opacity: 0;">
+            Pendaftaran kamu untuk {{ config('event.name') }} berhasil dikonfirmasi.
         </div>
+
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background: #e7f7fb;">
+            <tr>
+                <td align="center" style="padding: 34px 14px;">
+                    <table role="presentation" class="email-shell" width="600" cellspacing="0" cellpadding="0" border="0" style="width: 600px; max-width: 600px;">
+                        <tr>
+                            <td style="padding: 0 0 16px 4px; color: #0b6580; font-size: 13px; font-weight: bold; letter-spacing: 1.5px; text-transform: uppercase;">
+                                ikanpaus<span style="color: #0b86a4;">ikanpindang</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="overflow: hidden; border-radius: 24px 24px 0 0; background: #031c35;">
+                                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                                    <tr>
+                                        <td style="padding: 42px 38px 44px; background: linear-gradient(135deg, #031c35 0%, #075273 62%, #0b86a4 100%);">
+                                            <div style="margin-bottom: 22px; color: #a6f0ff; font-size: 42px; line-height: 1;" aria-hidden="true">✦</div>
+                                            <p style="margin: 0 0 12px; color: #f7c95c; font-size: 12px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase;">Registrasi terkonfirmasi</p>
+                                            <h1 class="hero-title" style="margin: 0; color: #ffffff; font-size: 38px; line-height: 1.1;">Sampai jumpa di laut.</h1>
+                                            <p style="margin: 16px 0 0; color: #d9faff; font-size: 16px; line-height: 1.6;">Tempatmu sudah aman untuk pengalaman pesisir yang penuh cerita.</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="email-pad" style="padding: 34px 38px 38px; background: #ffffff;">
+                                <p style="margin: 0 0 8px; color: #082f4d; font-size: 18px; font-weight: bold;">Halo, {{ $registration['name'] }}! 👋</p>
+                                <p style="margin: 0; color: #557084; font-size: 15px; line-height: 1.7;">Terima kasih sudah mendaftar. Data kamu telah kami terima dan pendaftaranmu untuk <strong style="color: #0b6580;">{{ config('event.name') }}</strong> berhasil.</p>
+
+                                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 26px; border: 1px solid #c9edf4; border-radius: 16px; background: #f1fcfe;">
+                                    <tr>
+                                        <td style="padding: 20px;">
+                                            <p style="margin: 0 0 14px; color: #0b6580; font-size: 12px; font-weight: bold; letter-spacing: 1.5px; text-transform: uppercase;">Detail acara</p>
+                                            <p style="margin: 0 0 9px; color: #082f4d; font-size: 14px; line-height: 1.5;"><strong>Acara</strong><br>{{ config('event.name') }}</p>
+                                            <p style="margin: 0 0 9px; color: #082f4d; font-size: 14px; line-height: 1.5;"><strong>Waktu</strong><br>{{ config('event.date_range') }}</p>
+                                            <p style="margin: 0; color: #082f4d; font-size: 14px; line-height: 1.5;"><strong>Lokasi</strong><br>{{ config('event.location') }}</p>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <h2 style="margin: 32px 0 12px; color: #082f4d; font-size: 20px;">Agenda pilihanmu</h2>
+                                <p style="margin: 0 0 15px; color: #718696; font-size: 14px; line-height: 1.5;">Simpan daftar ini agar tidak melewatkan kegiatan favoritmu.</p>
+                                @foreach ($registration['schedule'] as $schedule)
+                                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom: 10px; border: 1px solid #d6e8ed; border-radius: 14px; background: #ffffff;">
+                                        <tr>
+                                            <td class="schedule-cell" width="92" style="padding: 15px; vertical-align: top; color: #0b86a4; font-size: 13px; font-weight: bold; line-height: 1.4;">
+                                                {{ config("event.schedules.{$schedule}.day") }}<br>
+                                                <span style="color: #082f4d;">{{ config("event.schedules.{$schedule}.time") }}</span>
+                                            </td>
+                                            <td class="schedule-cell" style="padding: 15px 15px 15px 0; vertical-align: top; color: #557084; font-size: 14px; line-height: 1.5;">
+                                                <strong style="color: #082f4d;">{{ config("event.schedules.{$schedule}.title") }}</strong><br>
+                                                {{ config('event.location') }}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                @endforeach
+
+                                @if (filled($registration['notes']))
+                                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 22px; border-left: 4px solid #f7c95c; background: #fff9e8;">
+                                        <tr>
+                                            <td style="padding: 13px 16px; color: #6b5a2c; font-size: 14px; line-height: 1.5;"><strong>Catatanmu</strong><br>{{ $registration['notes'] }}</td>
+                                        </tr>
+                                    </table>
+                                @endif
+
+                                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 30px; border-top: 1px solid #e4eef1;">
+                                    <tr>
+                                        <td style="padding-top: 24px; color: #557084; font-size: 14px; line-height: 1.7;">
+                                            <strong style="color: #082f4d;">Simpan email ini sebagai bukti pendaftaran.</strong><br>
+                                            Jika ada perubahan jadwal atau informasi penting, panitia akan menghubungimu melalui email ini.
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border-radius: 0 0 24px 24px; background: #031c35; padding: 26px 38px; text-align: center;">
+                                <p style="margin: 0 0 8px; color: #a6f0ff; font-size: 13px; font-weight: bold;">Laut bercerita. Kamu jadi bagiannya.</p>
+                                <p style="margin: 0; color: #8ca4b2; font-size: 12px; line-height: 1.6;">Email ini dikirim otomatis oleh {{ config('app.name', 'Ikanpausikanpindang') }}.<br>Mohon tidak membalas email ini.</p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
     </body>
 </html>

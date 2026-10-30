@@ -23,7 +23,7 @@ class RegistrationConfirmation extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Pendaftaran Berhasil - Ikanpausikanpindang',
+            subject: '✦ Pendaftaran kamu berhasil - '.config('event.name'),
         );
     }
 

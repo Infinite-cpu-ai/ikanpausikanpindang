@@ -37,6 +37,25 @@ it('sends a confirmation email for valid registration data', function () {
     });
 });
 
+it('renders a polished confirmation email with registration details', function () {
+    $registration = [
+        'name' => 'Budi Santoso',
+        'email' => 'budi@example.com',
+        'phone' => '08123456789',
+        'gender' => 'male',
+        'schedule' => ['sunday-14-morning'],
+        'notes' => 'Saya siap bergabung.',
+    ];
+
+    $html = (new RegistrationConfirmation($registration))->render();
+
+    expect($html)
+        ->toContain('Registrasi terkonfirmasi')
+        ->toContain('Sampai jumpa di laut.')
+        ->toContain('Registrasi &amp; sarapan pesisir')
+        ->toContain('Saya siap bergabung.');
+});
+
 it('rejects invalid registration data without sending email', function () {
     Mail::fake();
 
