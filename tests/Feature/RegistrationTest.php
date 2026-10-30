@@ -8,7 +8,8 @@ it('renders the registration form', function () {
 
     $response
         ->assertOk()
-        ->assertSee('Amankan tempatmu di Laut Bercerita')
+        ->assertSee('Amankan tempatmu di')
+        ->assertSee('Laut Bercerita.')
         ->assertSee('Kirim pendaftaran');
 });
 
@@ -20,7 +21,7 @@ it('sends a confirmation email for valid registration data', function () {
         'email' => 'budi@example.com',
         'phone' => '08123456789',
         'gender' => 'male',
-        'schedule' => ['saturday-morning', 'sunday-closing'],
+        'schedule' => ['sunday-14-morning', 'saturday-20-closing'],
         'notes' => 'Saya siap bergabung.',
         'agree' => '1',
     ];

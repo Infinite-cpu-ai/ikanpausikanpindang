@@ -32,14 +32,14 @@
                 <div class="relative mx-auto grid max-w-7xl gap-12 px-6 pb-36 pt-40 lg:grid-cols-[1.1fr_.9fr] lg:items-center lg:px-8">
                     <div class="max-w-3xl">
                         <p class="mb-6 inline-flex rounded-full border border-[#63d8f2]/40 bg-[#63d8f2]/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.25em] text-[#a6f0ff]">
-                            Festival laut & konservasi · 14–15 Juni 2026
+                            Festival laut & konservasi · {{ $event['date_range'] }}
                         </p>
                         <h1 class="font-serif text-5xl font-bold leading-[.98] tracking-tight sm:text-7xl">
                             Laut <span class="text-[#63d8f2]">bercerita.</span><br>
                             Kamu jadi bagiannya.
                         </h1>
                         <p class="mt-7 max-w-xl text-lg leading-8 text-white/75">
-                            Dua hari untuk menyelam lebih dekat ke budaya pesisir, mencicipi rasa laut, dan bergerak bersama menjaga laut Indonesia.
+                            Tujuh hari untuk menyelam lebih dekat ke budaya pesisir, mencicipi rasa laut, dan bergerak bersama menjaga laut Indonesia.
                         </p>
                         <div class="mt-9 flex flex-wrap gap-4">
                             <a href="{{ route('registrations.create') }}" class="rounded-full bg-[#f7c95c] px-6 py-3.5 font-bold text-[#032744] transition hover:-translate-y-1 hover:bg-[#ffe18d]">Daftar acara <span aria-hidden="true">→</span></a>
@@ -53,7 +53,7 @@
                             <div class="flex aspect-[4/5] flex-col justify-between overflow-hidden rounded-[1.4rem] bg-gradient-to-b from-[#107da0] via-[#075273] to-[#032744] p-7">
                                 <div class="flex justify-between text-xs font-bold uppercase tracking-widest text-[#a6f0ff]"><span>LB / 26</span><span>✦</span></div>
                                 <div><div class="mb-4 text-7xl" aria-hidden="true">🐋</div><p class="font-serif text-4xl font-bold leading-tight">Temui laut dari sisi yang berbeda.</p></div>
-                                <div class="border-t border-white/20 pt-4 text-sm text-white/65">Pantai Tanjung Biru<br>14–15 Juni 2026 · 08.00–21.00 WIB</div>
+                                <div class="border-t border-white/20 pt-4 text-sm text-white/65">{{ $event['location'] }}<br>{{ $event['date_range'] }} · 08.00–21.00 WIB</div>
                             </div>
                         </div>
                     </div>
@@ -83,8 +83,15 @@
                 <div class="mx-auto max-w-7xl px-6 lg:px-8">
                     <div class="flex flex-col justify-between gap-5 sm:flex-row sm:items-end"><div><p class="text-sm font-bold uppercase tracking-[0.25em] text-[#63d8f2]">Agenda utama</p><h2 class="mt-4 font-serif text-4xl font-bold sm:text-5xl">Ikuti alirannya.</h2></div><p class="max-w-sm text-white/60">Pilih kegiatan favoritmu, lalu amankan tempat sebelum penuh.</p></div>
                     <div class="mt-12 grid gap-5 lg:grid-cols-2">
-                        <div class="rounded-3xl border border-white/10 bg-white/5 p-7"><div class="flex items-center justify-between border-b border-white/10 pb-5"><div><p class="text-sm text-[#63d8f2]">SABTU</p><p class="mt-1 text-2xl font-bold">14 Juni 2026</p></div><span class="rounded-full bg-[#f7c95c] px-3 py-1 text-xs font-bold text-[#032744]">HARI 01</span></div><div class="divide-y divide-white/10"><div class="flex gap-5 py-5"><time class="w-16 shrink-0 text-sm font-bold text-[#a6f0ff]">08.00</time><div><h3 class="font-bold">Registrasi & sarapan pesisir</h3><p class="mt-1 text-sm text-white/55">Dermaga utama</p></div></div><div class="flex gap-5 py-5"><time class="w-16 shrink-0 text-sm font-bold text-[#a6f0ff]">10.00</time><div><h3 class="font-bold">Bincang: Menjaga laut dari rumah</h3><p class="mt-1 text-sm text-white/55">Panggung utama</p></div></div><div class="flex gap-5 py-5"><time class="w-16 shrink-0 text-sm font-bold text-[#a6f0ff]">16.30</time><div><h3 class="font-bold">Sunset acoustic & cerita nelayan</h3><p class="mt-1 text-sm text-white/55">Pantai timur</p></div></div><div class="flex gap-5 pt-5"><time class="w-16 shrink-0 text-sm font-bold text-[#a6f0ff]">19.00</time><div><h3 class="font-bold">Malam kuliner laut nusantara</h3><p class="mt-1 text-sm text-white/55">Pasar rasa</p></div></div></div></div>
-                        <div class="rounded-3xl border border-white/10 bg-white/5 p-7"><div class="flex items-center justify-between border-b border-white/10 pb-5"><div><p class="text-sm text-[#63d8f2]">MINGGU</p><p class="mt-1 text-2xl font-bold">15 Juni 2026</p></div><span class="rounded-full bg-[#63d8f2] px-3 py-1 text-xs font-bold text-[#032744]">HARI 02</span></div><div class="divide-y divide-white/10"><div class="flex gap-5 py-5"><time class="w-16 shrink-0 text-sm font-bold text-[#a6f0ff]">07.00</time><div><h3 class="font-bold">Beach clean-up bersama</h3><p class="mt-1 text-sm text-white/55">Pantai selatan</p></div></div><div class="flex gap-5 py-5"><time class="w-16 shrink-0 text-sm font-bold text-[#a6f0ff]">10.00</time><div><h3 class="font-bold">Workshop fotografi bawah air</h3><p class="mt-1 text-sm text-white/55">Ruang kreatif</p></div></div><div class="flex gap-5 py-5"><time class="w-16 shrink-0 text-sm font-bold text-[#a6f0ff]">14.00</time><div><h3 class="font-bold">Pameran karya anak pesisir</h3><p class="mt-1 text-sm text-white/55">Galeri bahari</p></div></div><div class="flex gap-5 pt-5"><time class="w-16 shrink-0 text-sm font-bold text-[#a6f0ff]">17.00</time><div><h3 class="font-bold">Penutupan & pelepasan tukik</h3><p class="mt-1 text-sm text-white/55">Pantai utama</p></div></div></div></div>
+                        @foreach ($event['schedules'] as $index => $schedule)
+                            <article class="rounded-3xl border border-white/10 bg-white/5 p-7">
+                                <div class="flex items-center justify-between border-b border-white/10 pb-5">
+                                    <div><p class="text-sm text-[#63d8f2]">{{ $schedule['day'] }}</p><p class="mt-1 text-2xl font-bold">{{ $schedule['time'] }} WIB</p></div>
+                                    <span class="rounded-full bg-[#63d8f2] px-3 py-1 text-xs font-bold text-[#032744]">HARI {{ str_pad((string) ($loop->iteration), 2, '0', STR_PAD_LEFT) }}</span>
+                                </div>
+                                <div class="pt-5"><h3 class="font-bold">{{ $schedule['title'] }}</h3><p class="mt-1 text-sm text-white/55">{{ $event['location'] }}</p></div>
+                            </article>
+                        @endforeach
                     </div>
                 </div>
             </section>

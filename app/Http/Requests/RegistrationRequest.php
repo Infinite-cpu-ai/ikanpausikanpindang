@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class RegistrationRequest extends FormRequest
 {
@@ -19,7 +20,7 @@ class RegistrationRequest extends FormRequest
             'phone' => ['required', 'string', 'max:30'],
             'gender' => ['required', 'in:male,female'],
             'schedule' => ['required', 'array', 'min:1'],
-            'schedule.*' => ['string', 'in:saturday-morning,saturday-evening,saturday-night,sunday-morning,sunday-day,sunday-closing'],
+            'schedule.*' => ['string', Rule::in(array_keys(config('event.schedules')))],
             'notes' => ['nullable', 'string', 'max:1000'],
             'agree' => ['accepted'],
         ];

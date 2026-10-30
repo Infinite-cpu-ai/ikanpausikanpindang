@@ -40,8 +40,36 @@
     }
 }
 
+@keyframes ocean-glow {
+    0%, 100% {
+        opacity: .35;
+        transform: scale(1);
+    }
+    50% {
+        opacity: .65;
+        transform: scale(1.08);
+    }
+}
+
+@keyframes soft-float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
 .ocean-drift {
     animation: ocean-drift 6s ease-in-out infinite;
+}
+
+.ocean-glow {
+    animation: ocean-glow 7s ease-in-out infinite;
+}
+
+.soft-float {
+    animation: soft-float 5s ease-in-out infinite;
 }
 
 .bubble {
@@ -67,7 +95,9 @@
 @media (prefers-reduced-motion: reduce) {
     .ocean-drift,
     .bubble,
-    .wave-slide {
+    .wave-slide,
+    .ocean-glow,
+    .soft-float {
         animation: none;
     }
 }

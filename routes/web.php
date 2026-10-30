@@ -4,7 +4,9 @@ use App\Http\Controllers\RegistrationController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', [
+        'event' => config('event'),
+    ]);
 })->name('home');
 
 Route::get('/pendaftaran', [RegistrationController::class, 'create'])

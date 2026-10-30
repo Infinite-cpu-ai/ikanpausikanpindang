@@ -12,7 +12,9 @@ class RegistrationController extends Controller
 {
     public function create(): View
     {
-        return view('registrations.create');
+        return view('registrations.create', [
+            'event' => config('event'),
+        ]);
     }
 
     public function store(RegistrationRequest $request): RedirectResponse
