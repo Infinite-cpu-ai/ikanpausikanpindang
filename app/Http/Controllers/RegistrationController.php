@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RegistrationRequest;
 use App\Mail\RegistrationConfirmation;
+use App\Models\Registration;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
@@ -17,6 +18,22 @@ class RegistrationController extends Controller
     {
         return view('registrations.create', [
             'event' => config('event'),
+            'ticket' => null,
+        ]);
+    }
+
+    public function ticket(string $ticketCode): View
+    {
+        $registration = Registration::where('ticket_code', $ticketCode)->firstOrFail();
+
+        return view('registrations.create', [
+            'event' => config('event'),
+            'ticket' => [
+                'code' => $registration->ticket_code,
+                'name' => $registration->name,
+                'email' => $registration->email,
+                'schedule' => $registration->schedule,
+            ],
         ]);
     }
 
@@ -38,6 +55,8 @@ class RegistrationController extends Controller
                 ->withErrors(['email' => 'Pendaftaran belum selesai karena email konfirmasi gagal dikirim. Coba lagi atau gunakan email lain.']);
         }
 
+        Registration::create($registration);
+
         $ticket = [
             'code' => $registration['ticket_code'],
             'name' => $registration['name'],
@@ -45,8 +64,6 @@ class RegistrationController extends Controller
             'schedule' => $registration['schedule'],
         ];
 
-        return to_route('registrations.create')
-            ->with('registration_submitted', true)
-            ->with('registration_ticket', $ticket);
+        return to_route('registrations.ticket', ['ticketCode' => $ticket['code']]);
     }
 }

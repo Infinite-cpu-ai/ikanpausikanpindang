@@ -1,8 +1,12 @@
 <?php
 
 use App\Mail\RegistrationConfirmation;
+use App\Models\Registration;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Mail;
 use Symfony\Component\Mailer\Exception\TransportException;
+
+uses(RefreshDatabase::class);
 
 it('renders the registration form', function () {
     $response = $this->get('/pendaftaran');
@@ -32,15 +36,22 @@ it('sends a confirmation email for valid registration data', function () {
 
     $response = $this->post('/pendaftaran', $registration);
 
-    $response->assertRedirect('/pendaftaran');
-    $response->assertSessionHas('registration_submitted', true);
-    $response->assertSessionHas('registration_ticket.email', $registration['email']);
-    $response->assertSessionHas('registration_ticket.code');
+    $response->assertRedirect();
+    $response->assertRedirectContains('/pendaftaran/tiket/LB26-');
     Mail::assertSent(RegistrationConfirmation::class, function (RegistrationConfirmation $mail) use ($registration): bool {
         return $mail->hasTo($registration['email'])
             && $mail->registration['name'] === $registration['name']
             && $mail->registration['schedule'] === $registration['schedule'];
     });
+
+    $storedRegistration = Registration::where('email', $registration['email'])->first();
+    expect($storedRegistration)->not->toBeNull();
+
+    $ticketResponse = $this->get(route('registrations.ticket', $storedRegistration->ticket_code));
+    $ticketResponse
+        ->assertOk()
+        ->assertSee($storedRegistration->ticket_code)
+        ->assertSee('Pendaftaran berhasil!');
 
     expect((new RegistrationConfirmation($registration))->envelope()->subject)
         ->toBe('Halo Budi Santoso, pendaftaran kamu berhasil');
@@ -81,7 +92,7 @@ it('accepts a custom gender label when other is selected', function () {
     $response = $this->post('/pendaftaran', $registration);
 
     $response
-        ->assertRedirect('/pendaftaran')
+        ->assertRedirectContains('/pendaftaran/tiket/LB26-')
         ->assertSessionHasNoErrors();
 });
 
@@ -96,12 +107,13 @@ it('renders a polished confirmation email with registration details', function (
         'ticket_code' => 'LB26-TEST1234',
     ];
 
+    $registration['ticket_code'] = 'LB26-TEST1234';
     $html = (new RegistrationConfirmation($registration))->render();
 
     expect($html)
         ->toContain('Registrasi terkonfirmasi')
         ->toContain('LB26-TEST1234')
-        ->toContain('Buka halaman pendaftaran')
+        ->toContain('Buka tiket invitation')
         ->toContain('Pendaftaran berhasil!')
         ->toContain('Registrasi &amp; sarapan pesisir')
         ->toContain('Saya siap bergabung.');

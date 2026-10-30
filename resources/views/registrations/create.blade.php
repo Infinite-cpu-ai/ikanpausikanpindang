@@ -41,8 +41,7 @@
 
                 <div class="relative mx-auto mt-12 max-w-4xl overflow-hidden rounded-[2rem] border border-white/20 bg-[#082f4d]/80 p-6 shadow-2xl shadow-black/30 backdrop-blur-xl sm:p-10">
                     <div class="absolute -right-20 -top-20 h-52 w-52 rounded-full bg-[#63d8f2]/10 blur-3xl"></div>
-                    @if (session('registration_submitted'))
-                        @php($ticket = session('registration_ticket'))
+                    @if ($ticket)
                         <div class="relative overflow-hidden rounded-[2rem] border border-[#63d8f2]/50 bg-gradient-to-br from-[#0b5273] via-[#06385a] to-[#031c35] p-7 text-[#d9faff] shadow-2xl shadow-black/30 sm:p-10" role="status">
                             <div class="absolute -right-16 -top-24 h-72 w-72 rounded-full bg-[#63d8f2]/20 blur-3xl"></div>
                             <div class="absolute -bottom-28 -left-20 h-64 w-64 rounded-full bg-[#f7c95c]/10 blur-3xl"></div>
@@ -106,7 +105,7 @@
                         </div>
                     @endif
 
-                    @if (!session('registration_submitted'))
+                    @if (!$ticket)
                     <form method="POST" action="{{ route('registrations.store') }}" class="relative space-y-6">
                         @csrf
                         <div class="grid gap-4 sm:grid-cols-2">

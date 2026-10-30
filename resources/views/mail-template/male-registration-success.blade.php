@@ -84,7 +84,7 @@
                                             <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin: 30px auto 0;">
                                                 <tr>
                                                     <td style="border-radius: 999px; background: #f7c95c;">
-                                                        <a href="{{ route('registrations.create') }}" style="display: inline-block; padding: 15px 26px; color: #032744; font-size: 14px; font-weight: bold; text-decoration: none;">Buka halaman pendaftaran</a>
+                                                        <a href="{{ route('registrations.ticket', ['ticketCode' => $registration['ticket_code']]) }}" style="display: inline-block; padding: 15px 26px; color: #032744; font-size: 14px; font-weight: bold; text-decoration: none;">Buka tiket invitation</a>
                                                     </td>
                                                 </tr>
                                             </table>
