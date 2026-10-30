@@ -33,7 +33,7 @@
                                 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
                                     <tr>
                                         <td style="padding: 32px 38px 36px; background: linear-gradient(135deg, #031c35 0%, #075273 62%, #0b86a4 100%);">
-                                            <img src="{{ asset('images/ikanpausikanpindang-mascot.jpeg') }}" width="180" alt="Maskot Ikanpausikanpindang" style="display: block; width: 180px; height: 180px; object-fit: cover; border: 5px solid #a6f0ff; border-radius: 999px; background: #eafcff;">
+                                            <div style="display: inline-block; margin-bottom: 24px; border: 2px solid #a6f0ff; border-radius: 999px; padding: 14px 20px; color: #d9faff; font-size: 16px; font-weight: bold; letter-spacing: 1px;">IKANPAUS<br><span style="color: #f7c95c;">IKANPINDANG</span></div>
                                             <p style="margin: 0 0 12px; color: #f7c95c; font-size: 12px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase;">Registrasi terkonfirmasi</p>
                                             <h1 class="hero-title" style="margin: 0; color: #ffffff; font-size: 38px; line-height: 1.1;">Sampai jumpa di laut.</h1>
                                             <p style="margin: 16px 0 0; color: #d9faff; font-size: 16px; line-height: 1.6;">Tempatmu sudah aman untuk pengalaman pesisir yang penuh cerita.</p>

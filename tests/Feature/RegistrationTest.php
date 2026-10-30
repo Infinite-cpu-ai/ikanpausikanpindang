@@ -39,6 +39,9 @@ it('sends a confirmation email for valid registration data', function () {
             && $mail->registration['schedule'] === $registration['schedule'];
     });
 
+    expect((new RegistrationConfirmation($registration))->envelope()->subject)
+        ->toBe('Halo Budi Santoso, pendaftaran kamu berhasil');
+
     it('returns a useful form error when confirmation email delivery fails', function () {
         Mail::shouldReceive('to')->once()->andThrow(
             new TransportException('SMTP unavailable')
@@ -73,6 +76,8 @@ it('renders a polished confirmation email with registration details', function (
 
     expect($html)
         ->toContain('Registrasi terkonfirmasi')
+        ->toContain('IKANPAUS')
+        ->not->toContain('ikanpausikanpindang-mascot.jpeg')
         ->toContain('Sampai jumpa di laut.')
         ->toContain('Registrasi &amp; sarapan pesisir')
         ->toContain('Saya siap bergabung.');
