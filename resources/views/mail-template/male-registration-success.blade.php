@@ -28,6 +28,11 @@
                                 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
                                     <tr>
                                         <td style="padding: 34px 38px 38px; background: linear-gradient(160deg, #021426 0%, #06466a 52%, #0b86a4 100%);">
+                                            <div style="margin-bottom: 26px; border-bottom: 1px solid #63d8f2; padding-bottom: 18px;">
+                                                <p style="margin: 0; color: #ffffff; font-size: 19px; font-weight: 900; letter-spacing: 3px; line-height: 1.15;">IKANPAUS</p>
+                                                <p style="margin: 4px 0 0; color: #f7c95c; font-size: 12px; font-weight: bold; letter-spacing: 4px;">IKANPINDANG</p>
+                                                <p style="margin: 10px 0 0; color: #a6f0ff; font-size: 10px; letter-spacing: 2px; text-transform: uppercase;">Festival laut &amp; konservasi</p>
+                                            </div>
                                             <p style="margin: 0 0 20px; color: #a6f0ff; font-size: 24px; letter-spacing: 8px; line-height: 1;">🌊 🫧 🐠 🫧 🌊</p>
                                             <p style="margin: 0 0 14px; color: #f7c95c; font-size: 12px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase;">🌊 Registrasi terkonfirmasi</p>
                                             <h1 class="hero-title" style="margin: 0; color: #ffffff; font-size: 40px; line-height: 1.1;">Pendaftaran berhasil!</h1>

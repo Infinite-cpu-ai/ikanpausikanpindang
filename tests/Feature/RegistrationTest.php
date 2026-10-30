@@ -112,6 +112,9 @@ it('renders a polished confirmation email with registration details', function (
 
     expect($html)
         ->toContain('Registrasi terkonfirmasi')
+        ->toContain('IKANPAUS')
+        ->toContain('IKANPINDANG')
+        ->toContain('Festival laut &amp; konservasi')
         ->toContain('LB26-TEST1234')
         ->toContain('Buka tiket invitation')
         ->toContain('Pendaftaran berhasil!')
