@@ -122,6 +122,7 @@ it('renders a polished confirmation email with registration details', function (
         ->toContain('Saya siap bergabung.')
         ->toContain('wave-transition')
         ->toContain('wave-transition-footer')
+        ->toContain('border-radius: 50% 50% 0 0 / 100% 100% 0 0')
         ->toContain('background: #082f4d')
         ->not->toContain('@keyframes')
         ->not->toContain('animation:')

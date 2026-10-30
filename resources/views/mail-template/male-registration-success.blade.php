@@ -48,13 +48,14 @@
                                         </td>
                                     </tr>
                                 </table>
-                                <table role="presentation" class="wave-transition" width="100%" cellspacing="0" cellpadding="0" border="0" style="background: #0b86a4;">
+                                <table role="presentation" class="wave-transition" width="100%" cellspacing="0" cellpadding="0" border="0" style="background: #0b86a4; overflow: hidden;">
                                     <tr>
-                                        <td style="height: 14px; border-radius: 50% 50% 0 0; background: #082f4d; font-size: 0; line-height: 0;">&nbsp;</td>
-                                        <td style="height: 23px; border-radius: 50% 50% 0 0; background: #082f4d; font-size: 0; line-height: 0;">&nbsp;</td>
-                                        <td style="height: 17px; border-radius: 50% 50% 0 0; background: #082f4d; font-size: 0; line-height: 0;">&nbsp;</td>
-                                        <td style="height: 23px; border-radius: 50% 50% 0 0; background: #082f4d; font-size: 0; line-height: 0;">&nbsp;</td>
-                                        <td style="height: 14px; border-radius: 50% 50% 0 0; background: #082f4d; font-size: 0; line-height: 0;">&nbsp;</td>
+                                        <td width="50%" style="height: 28px; padding: 0; background: #0b86a4; font-size: 0; line-height: 0;">
+                                            <div style="height: 34px; margin: 0 -18% -10px; border-radius: 50% 50% 0 0 / 100% 100% 0 0; background: #082f4d;">&nbsp;</div>
+                                        </td>
+                                        <td width="50%" style="height: 28px; padding: 0; background: #0b86a4; font-size: 0; line-height: 0;">
+                                            <div style="height: 34px; margin: 0 -18% -10px; border-radius: 50% 50% 0 0 / 100% 100% 0 0; background: #082f4d;">&nbsp;</div>
+                                        </td>
                                     </tr>
                                 </table>
                                 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background: #082f4d;">
@@ -115,13 +116,14 @@
                                         </td>
                                     </tr>
                                 </table>
-                                <table role="presentation" class="wave-transition wave-transition-footer" width="100%" cellspacing="0" cellpadding="0" border="0" style="background: #082f4d;">
+                                <table role="presentation" class="wave-transition wave-transition-footer" width="100%" cellspacing="0" cellpadding="0" border="0" style="background: #082f4d; overflow: hidden;">
                                     <tr>
-                                        <td style="height: 12px; border-radius: 50% 50% 0 0; background: #031c35; font-size: 0; line-height: 0;">&nbsp;</td>
-                                        <td style="height: 19px; border-radius: 50% 50% 0 0; background: #031c35; font-size: 0; line-height: 0;">&nbsp;</td>
-                                        <td style="height: 14px; border-radius: 50% 50% 0 0; background: #031c35; font-size: 0; line-height: 0;">&nbsp;</td>
-                                        <td style="height: 19px; border-radius: 50% 50% 0 0; background: #031c35; font-size: 0; line-height: 0;">&nbsp;</td>
-                                        <td style="height: 12px; border-radius: 50% 50% 0 0; background: #031c35; font-size: 0; line-height: 0;">&nbsp;</td>
+                                        <td width="50%" style="height: 24px; padding: 0; background: #082f4d; font-size: 0; line-height: 0;">
+                                            <div style="height: 30px; margin: 0 -18% -10px; border-radius: 50% 50% 0 0 / 100% 100% 0 0; background: #031c35;">&nbsp;</div>
+                                        </td>
+                                        <td width="50%" style="height: 24px; padding: 0; background: #082f4d; font-size: 0; line-height: 0;">
+                                            <div style="height: 30px; margin: 0 -18% -10px; border-radius: 50% 50% 0 0 / 100% 100% 0 0; background: #031c35;">&nbsp;</div>
+                                        </td>
                                     </tr>
                                 </table>
                                 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
