@@ -2,6 +2,7 @@
 
 use App\Mail\RegistrationConfirmation;
 use Illuminate\Support\Facades\Mail;
+use Symfony\Component\Mailer\Exception\TransportException;
 
 it('renders the registration form', function () {
     $response = $this->get('/pendaftaran');
@@ -30,10 +31,31 @@ it('sends a confirmation email for valid registration data', function () {
 
     $response->assertRedirect('/pendaftaran');
     $response->assertSessionHas('registration_submitted', true);
+    $response->assertSessionHas('registration_ticket.email', $registration['email']);
+    $response->assertSessionHas('registration_ticket.code');
     Mail::assertSent(RegistrationConfirmation::class, function (RegistrationConfirmation $mail) use ($registration): bool {
         return $mail->hasTo($registration['email'])
             && $mail->registration['name'] === $registration['name']
             && $mail->registration['schedule'] === $registration['schedule'];
+    });
+
+    it('returns a useful form error when confirmation email delivery fails', function () {
+        Mail::shouldReceive('to')->once()->andThrow(
+            new TransportException('SMTP unavailable')
+        );
+
+        $response = $this->from('/pendaftaran')->post('/pendaftaran', [
+            'name' => 'Budi Santoso',
+            'email' => 'budi@example.com',
+            'phone' => '08123456789',
+            'gender' => 'male',
+            'schedule' => ['sunday-14-morning'],
+            'agree' => '1',
+        ]);
+
+        $response
+            ->assertRedirect('/pendaftaran')
+            ->assertSessionHasErrors('email');
     });
 });
 

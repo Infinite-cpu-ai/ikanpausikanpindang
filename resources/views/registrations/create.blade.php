@@ -41,9 +41,29 @@
                 <div class="relative mx-auto mt-12 max-w-4xl overflow-hidden rounded-[2rem] border border-white/20 bg-[#082f4d]/80 p-6 shadow-2xl shadow-black/30 backdrop-blur-xl sm:p-10">
                     <div class="absolute -right-20 -top-20 h-52 w-52 rounded-full bg-[#63d8f2]/10 blur-3xl"></div>
                     @if (session('registration_submitted'))
-                        <div class="relative mb-8 rounded-2xl border border-[#63d8f2]/30 bg-[#63d8f2]/10 p-5 text-[#d9faff]" role="status">
-                            <p class="font-semibold">Pendaftaran berhasil dikirim.</p>
-                            <p class="mt-1 text-sm text-white/70">Silakan cek inbox email untuk konfirmasi.</p>
+                        @php($ticket = session('registration_ticket'))
+                        <div class="relative overflow-hidden rounded-3xl border border-[#63d8f2]/30 bg-[#031c35]/75 p-6 text-[#d9faff] shadow-xl shadow-black/20 sm:p-8" role="status">
+                            <div class="absolute -right-12 -top-16 h-44 w-44 rounded-full bg-[#63d8f2]/15 blur-3xl"></div>
+                            <div class="relative flex flex-wrap items-start justify-between gap-5">
+                                <div>
+                                    <p class="text-sm font-bold uppercase tracking-[0.2em] text-[#63d8f2]">✦ Tiket invitation</p>
+                                    <h2 class="mt-3 font-serif text-3xl font-bold text-white">Pendaftaran berhasil!</h2>
+                                    <p class="mt-2 max-w-xl text-sm leading-6 text-white/65">Tiket ini sudah dibuat dan email konfirmasi sudah dikirim ke <strong class="text-[#d9faff]">{{ $ticket['email'] }}</strong>.</p>
+                                </div>
+                                <div class="rounded-2xl border border-[#f7c95c]/40 bg-[#f7c95c]/10 px-4 py-3 text-right">
+                                    <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#f7c95c]">Kode tiket</p>
+                                    <p class="mt-1 font-mono text-lg font-bold tracking-wider text-white">{{ $ticket['code'] }}</p>
+                                </div>
+                            </div>
+                            <div class="relative mt-7 grid gap-3 border-t border-white/10 pt-5 sm:grid-cols-2">
+                                @foreach ($ticket['schedule'] as $schedule)
+                                    <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                                        <p class="text-xs font-bold text-[#63d8f2]">{{ config("event.schedules.{$schedule}.day") }} · {{ config("event.schedules.{$schedule}.time") }}</p>
+                                        <p class="mt-1 text-sm font-semibold text-white">{{ config("event.schedules.{$schedule}.title") }}</p>
+                                    </div>
+                                @endforeach
+                            </div>
+                            <p class="relative mt-5 text-xs text-white/45">Simpan kode ini dan tunjukkan saat registrasi ulang di lokasi acara.</p>
                         </div>
                     @endif
 
@@ -58,6 +78,7 @@
                         </div>
                     @endif
 
+                    @if (!session('registration_submitted'))
                     <form method="POST" action="{{ route('registrations.store') }}" class="relative space-y-7">
                         @csrf
                         <div class="grid gap-5 sm:grid-cols-2">
@@ -116,6 +137,7 @@
 
                         <button type="submit" class="w-full rounded-full bg-[#f7c95c] px-6 py-3.5 font-bold text-[#032744] shadow-lg shadow-[#f7c95c]/20 transition hover:-translate-y-1 hover:bg-[#ffe18d]">Kirim pendaftaran <span aria-hidden="true">→</span></button>
                     </form>
+                    @endif
                 </div>
             </div>
         </main>
