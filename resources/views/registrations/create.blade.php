@@ -109,7 +109,7 @@
                     @if (!session('registration_submitted'))
                     <form method="POST" action="{{ route('registrations.store') }}" class="relative space-y-6">
                         @csrf
-                        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                        <div class="grid gap-4 sm:grid-cols-2">
                             <div>
                                 <label for="name" class="block text-sm font-semibold text-[#d9faff]">Nama lengkap</label>
                                 <input id="name" name="name" type="text" value="{{ old('name') }}" required maxlength="120" autocomplete="name" placeholder="Nama sesuai identitas" class="mt-2 block w-full rounded-xl border border-white/15 bg-[#031c35]/60 px-4 py-3 text-white placeholder:text-white/35 outline-none transition focus:border-[#63d8f2] focus:ring-2 focus:ring-[#63d8f2]/20">
@@ -120,21 +120,30 @@
                                 <input id="email" name="email" type="email" value="{{ old('email') }}" required maxlength="255" autocomplete="email" placeholder="kamu@email.com" class="mt-2 block w-full rounded-xl border border-white/15 bg-[#031c35]/60 px-4 py-3 text-white placeholder:text-white/35 outline-none transition focus:border-[#63d8f2] focus:ring-2 focus:ring-[#63d8f2]/20">
                                 @error('email')<p class="mt-1 text-sm text-red-700">{{ $message }}</p>@enderror
                             </div>
-                            <div>
-                                <label for="phone" class="block text-sm font-semibold text-[#d9faff]">Nomor telepon</label>
-                                <input id="phone" name="phone" type="tel" value="{{ old('phone') }}" required maxlength="30" autocomplete="tel" placeholder="08xxxxxxxxxx" class="mt-2 block w-full rounded-xl border border-white/15 bg-[#031c35]/60 px-4 py-3 text-white placeholder:text-white/35 outline-none transition focus:border-[#63d8f2] focus:ring-2 focus:ring-[#63d8f2]/20">
-                                @error('phone')<p class="mt-1 text-sm text-red-700">{{ $message }}</p>@enderror
-                            </div>
                         </div>
 
-                        <fieldset class="border-t border-white/10 pt-5">
-                            <legend class="text-sm font-semibold text-[#d9faff]">Jenis kelamin</legend>
-                            <div class="mt-3 flex gap-3 text-sm">
-                                <label class="flex cursor-pointer items-center gap-2 rounded-full border border-white/15 bg-[#031c35]/50 px-4 py-2.5 transition hover:border-[#63d8f2]"><input type="radio" name="gender" value="male" @checked(old('gender') === 'male') required> Laki-laki</label>
-                                <label class="flex cursor-pointer items-center gap-2 rounded-full border border-white/15 bg-[#031c35]/50 px-4 py-2.5 transition hover:border-[#63d8f2]"><input type="radio" name="gender" value="female" @checked(old('gender') === 'female')> Perempuan</label>
-                            </div>
+                        <div class="grid gap-4 border-t border-white/10 pt-5 sm:grid-cols-2">
+                        <div>
+                            <label for="phone" class="block text-sm font-semibold text-[#d9faff]">Nomor telepon</label>
+                            <input id="phone" name="phone" type="tel" value="{{ old('phone') }}" required maxlength="30" autocomplete="tel" placeholder="08xxxxxxxxxx" class="mt-2 block w-full rounded-xl border border-white/15 bg-[#031c35]/60 px-4 py-3 text-white placeholder:text-white/35 outline-none transition focus:border-[#63d8f2] focus:ring-2 focus:ring-[#63d8f2]/20">
+                            @error('phone')<p class="mt-1 text-sm text-red-700">{{ $message }}</p>@enderror
+                        </div>
+                        <div>
+                            <label for="gender" class="block text-sm font-semibold text-[#d9faff]">Jenis kelamin</label>
+                            <select id="gender" name="gender" required class="mt-2 block w-full appearance-none rounded-xl border border-white/15 bg-[#031c35]/60 px-4 py-3 text-white outline-none transition focus:border-[#63d8f2] focus:ring-2 focus:ring-[#63d8f2]/20">
+                                <option value="" class="bg-[#031c35]" disabled @selected(old('gender') === null)>Pilih jenis kelamin</option>
+                                <option value="male" class="bg-[#031c35]" @selected(old('gender') === 'male')>Laki-laki</option>
+                                <option value="female" class="bg-[#031c35]" @selected(old('gender') === 'female')>Perempuan</option>
+                                <option value="other" class="bg-[#031c35]" @selected(old('gender') === 'other')>Other</option>
+                            </select>
                             @error('gender')<p class="mt-1 text-sm text-red-700">{{ $message }}</p>@enderror
-                        </fieldset>
+                        </div>
+                        <div id="gender-other-wrapper" class="{{ old('gender') === 'other' ? '' : 'hidden' }} sm:col-span-2">
+                            <label for="gender_other" class="block text-sm font-semibold text-[#d9faff]">Sebutkan jenis kelamin</label>
+                            <input id="gender_other" name="gender_other" type="text" value="{{ old('gender_other') }}" maxlength="80" placeholder="Tulis jawabanmu" class="mt-2 block w-full rounded-xl border border-white/15 bg-[#031c35]/60 px-4 py-3 text-white placeholder:text-white/35 outline-none transition focus:border-[#63d8f2] focus:ring-2 focus:ring-[#63d8f2]/20">
+                            @error('gender_other')<p class="mt-1 text-sm text-red-700">{{ $message }}</p>@enderror
+                        </div>
+                        </div>
 
                         <fieldset class="border-t border-white/10 pt-5">
                             <legend class="text-sm font-semibold text-[#d9faff]">Pilih jadwal yang ingin kamu ikuti</legend>
@@ -171,5 +180,20 @@
         </main>
 
         <footer class="bg-[#031c35] px-6 py-8 text-center text-sm text-white/55"><p>© {{ date('Y') }} Ikanpausikanpindang · Laut Bercerita 2026</p></footer>
+        <script>
+            document.getElementById('gender')?.addEventListener('change', (event) => {
+                const wrapper = document.getElementById('gender-other-wrapper');
+                const input = document.getElementById('gender_other');
+                const isOther = event.target.value === 'other';
+
+                wrapper?.classList.toggle('hidden', !isOther);
+                if (input) {
+                    input.required = isOther;
+                    if (!isOther) {
+                        input.value = '';
+                    }
+                }
+            });
+        </script>
     </body>
 </html>

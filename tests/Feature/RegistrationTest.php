@@ -11,6 +11,9 @@ it('renders the registration form', function () {
         ->assertOk()
         ->assertSee('Amankan tempatmu di')
         ->assertSee('Laut Bercerita.')
+        ->assertSee('Laki-laki')
+        ->assertSee('Perempuan')
+        ->assertSee('Other')
         ->assertSee('Kirim pendaftaran');
 });
 
@@ -41,25 +44,45 @@ it('sends a confirmation email for valid registration data', function () {
 
     expect((new RegistrationConfirmation($registration))->envelope()->subject)
         ->toBe('Halo Budi Santoso, pendaftaran kamu berhasil');
+});
 
-    it('returns a useful form error when confirmation email delivery fails', function () {
-        Mail::shouldReceive('to')->once()->andThrow(
-            new TransportException('SMTP unavailable')
-        );
+it('returns a useful form error when confirmation email delivery fails', function () {
+    Mail::shouldReceive('to')->once()->andThrow(
+        new TransportException('SMTP unavailable')
+    );
 
-        $response = $this->from('/pendaftaran')->post('/pendaftaran', [
-            'name' => 'Budi Santoso',
-            'email' => 'budi@example.com',
-            'phone' => '08123456789',
-            'gender' => 'male',
-            'schedule' => ['sunday-14-morning'],
-            'agree' => '1',
-        ]);
+    $response = $this->from('/pendaftaran')->post('/pendaftaran', [
+        'name' => 'Budi Santoso',
+        'email' => 'budi@example.com',
+        'phone' => '08123456789',
+        'gender' => 'male',
+        'schedule' => ['sunday-14-morning'],
+        'agree' => '1',
+    ]);
 
-        $response
-            ->assertRedirect('/pendaftaran')
-            ->assertSessionHasErrors('email');
-    });
+    $response
+        ->assertRedirect('/pendaftaran')
+        ->assertSessionHasErrors('email');
+});
+
+it('accepts a custom gender label when other is selected', function () {
+    $registration = [
+        'name' => 'Budi Santoso',
+        'email' => 'budi@example.com',
+        'phone' => '08123456789',
+        'gender' => 'other',
+        'gender_other' => 'Non-biner',
+        'schedule' => ['sunday-14-morning'],
+        'agree' => '1',
+    ];
+
+    Mail::fake();
+
+    $response = $this->post('/pendaftaran', $registration);
+
+    $response
+        ->assertRedirect('/pendaftaran')
+        ->assertSessionHasNoErrors();
 });
 
 it('renders a polished confirmation email with registration details', function () {
@@ -91,6 +114,7 @@ it('rejects invalid registration data without sending email', function () {
         'email' => 'not-an-email',
         'phone' => '',
         'gender' => 'unknown',
+        'gender_other' => '',
         'schedule' => [],
         'agree' => '0',
     ]);
