@@ -54,7 +54,7 @@ it('sends a confirmation email for valid registration data', function () {
         ->assertSee('Pendaftaran berhasil!');
 
     expect((new RegistrationConfirmation($registration))->envelope()->subject)
-        ->toBe('Halo Budi Santoso, pendaftaran kamu berhasil');
+        ->toBe('🌊 Halo Budi Santoso, pendaftaran kamu berhasil 🫧');
 });
 
 it('returns a useful form error when confirmation email delivery fails', function () {

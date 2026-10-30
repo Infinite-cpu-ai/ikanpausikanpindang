@@ -23,7 +23,7 @@ class RegistrationConfirmation extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Halo '.$this->registration['name'].', pendaftaran kamu berhasil',
+            subject: '🌊 Halo '.$this->registration['name'].', pendaftaran kamu berhasil 🫧',
         );
     }
 
