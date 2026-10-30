@@ -5,7 +5,7 @@ test('the application returns a successful response', function () {
 
     $response
         ->assertOk()
-        ->assertSee('Rasa pesisir yang')
-        ->assertSee('data-menu-toggle')
-        ->assertSee('Daftar sekarang');
+        ->assertSee('Laut Bercerita 2026')
+        ->assertSee('Agenda utama')
+        ->assertSee('Daftar acara');
 });

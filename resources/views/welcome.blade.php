@@ -1,151 +1,102 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth">
+<html lang="id" class="scroll-smooth">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Cerita laut, resep rumahan, dan rasa khas Ikanpausikanpindang.">
-
-        <title>{{ config('app.name', 'Ikanpausikanpindang') }}</title>
-
+        <meta name="description" content="Laut Bercerita 2026 - festival laut, budaya pesisir, dan konservasi bersama Ikanpausikanpindang.">
+        <title>Laut Bercerita 2026 - {{ config('app.name', 'Ikanpausikanpindang') }}</title>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="bg-[#f7f4ed] text-[#183b3a] antialiased">
-        <header class="sticky top-0 z-50 border-b border-[#183b3a]/10 bg-[#f7f4ed]/95 backdrop-blur">
-            <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8" aria-label="Navigasi utama">
-                <a href="#beranda" class="font-serif text-xl font-bold tracking-tight text-[#183b3a]">
-                    ikanpaus<span class="text-[#d96c3f]">ikanpindang</span>
+    <body class="min-h-screen overflow-x-hidden bg-[#031c35] text-white antialiased">
+        <header class="absolute inset-x-0 top-0 z-30 border-b border-white/10 bg-[#031c35]/30 backdrop-blur-md">
+            <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8" aria-label="Navigasi utama">
+                <a href="#beranda" class="font-serif text-xl font-bold tracking-tight">
+                    ikanpaus<span class="text-[#63d8f2]">ikanpindang</span>
                 </a>
-
-                <button
-                    type="button"
-                    class="rounded-lg p-2 text-[#183b3a] hover:bg-[#183b3a]/10 lg:hidden"
-                    data-menu-toggle
-                    aria-controls="main-menu"
-                    aria-expanded="false"
-                    aria-label="Buka menu"
-                >
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
-
-                <div id="main-menu" class="absolute inset-x-0 top-full hidden border-b border-[#183b3a]/10 bg-[#f7f4ed] px-6 py-4 lg:static lg:flex lg:items-center lg:gap-8 lg:border-0 lg:bg-transparent lg:p-0" data-menu>
-                    <div class="flex flex-col gap-4 text-sm font-medium lg:flex-row lg:items-center">
-                        <a href="#cerita" class="transition hover:text-[#d96c3f]" data-menu-link>Cerita Kami</a>
-                        <a href="#rasa" class="transition hover:text-[#d96c3f]" data-menu-link>Rasa Pilihan</a>
-                        <a href="#nilai" class="transition hover:text-[#d96c3f]" data-menu-link>Kenapa Kami</a>
-                    </div>
-                    <a href="#mulai" class="mt-4 inline-flex items-center justify-center rounded-full bg-[#d96c3f] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#b9532c] lg:mt-0" data-menu-link>
-                        Jelajahi Sekarang
-                    </a>
+                <div class="flex items-center gap-6 text-sm font-semibold text-white/75">
+                    <a href="#acara" class="hidden transition hover:text-[#63d8f2] sm:block">Tentang acara</a>
+                    <a href="#jadwal" class="hidden transition hover:text-[#63d8f2] sm:block">Jadwal</a>
+                    <a href="{{ route('registrations.create') }}" class="rounded-full bg-[#f7c95c] px-4 py-2 text-[#032744] transition hover:bg-[#ffe18d]">Daftar</a>
                 </div>
             </nav>
         </header>
 
         <main>
-            <section id="beranda" class="overflow-hidden">
-                <div class="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8 lg:py-28">
-                    <div>
-                        <p class="mb-5 text-sm font-bold uppercase tracking-[0.25em] text-[#d96c3f]">Dari laut, untuk meja makan</p>
-                        <h1 class="max-w-3xl font-serif text-5xl font-bold leading-[1.05] tracking-tight text-[#183b3a] sm:text-6xl lg:text-7xl">
-                            Rasa pesisir yang <span class="text-[#d96c3f]">pulang</span> ke rumah.
-                        </h1>
-                        <p class="mt-6 max-w-xl text-lg leading-8 text-[#183b3a]/70">
-                            Ikanpausikanpindang merayakan cerita laut dan kuliner khas Indonesia lewat resep yang hangat, jujur, dan mudah dinikmati siapa saja.
+            <section id="beranda" class="relative isolate min-h-[720px] overflow-hidden bg-gradient-to-b from-[#031c35] via-[#06466a] to-[#0b86a4]">
+                <div class="absolute inset-0 opacity-30" style="background-image: radial-gradient(circle at 20% 20%, #8deaff 0 1px, transparent 1px), radial-gradient(circle at 80% 60%, #8deaff 0 1px, transparent 1px); background-size: 80px 80px, 120px 120px;"></div>
+                <div class="bubble absolute bottom-16 left-[12%] h-3 w-3 rounded-full border border-white/60"></div>
+                <div class="bubble bubble-delay-1 absolute bottom-20 left-[28%] h-5 w-5 rounded-full border border-white/50"></div>
+                <div class="bubble bubble-delay-2 absolute bottom-10 left-[66%] h-4 w-4 rounded-full border border-white/50"></div>
+                <div class="bubble bubble-delay-3 absolute bottom-24 right-[12%] h-2 w-2 rounded-full border border-white/70"></div>
+
+                <div class="relative mx-auto grid max-w-7xl gap-12 px-6 pb-36 pt-40 lg:grid-cols-[1.1fr_.9fr] lg:items-center lg:px-8">
+                    <div class="max-w-3xl">
+                        <p class="mb-6 inline-flex rounded-full border border-[#63d8f2]/40 bg-[#63d8f2]/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.25em] text-[#a6f0ff]">
+                            Festival laut & konservasi · 14–15 Juni 2026
                         </p>
-                        <div class="mt-8 flex flex-wrap gap-4" id="mulai">
-                            <a href="{{ route('registrations.create') }}" class="inline-flex items-center gap-2 rounded-full bg-[#183b3a] px-6 py-3.5 font-semibold text-white transition hover:bg-[#285957]">
-                                Daftar sekarang
-                                <span aria-hidden="true">→</span>
-                            </a>
-                            <a href="#cerita" class="inline-flex items-center rounded-full border border-[#183b3a]/20 px-6 py-3.5 font-semibold transition hover:border-[#d96c3f] hover:text-[#d96c3f]">
-                                Baca cerita kami
-                            </a>
+                        <h1 class="font-serif text-5xl font-bold leading-[.98] tracking-tight sm:text-7xl">
+                            Laut <span class="text-[#63d8f2]">bercerita.</span><br>
+                            Kamu jadi bagiannya.
+                        </h1>
+                        <p class="mt-7 max-w-xl text-lg leading-8 text-white/75">
+                            Dua hari untuk menyelam lebih dekat ke budaya pesisir, mencicipi rasa laut, dan bergerak bersama menjaga laut Indonesia.
+                        </p>
+                        <div class="mt-9 flex flex-wrap gap-4">
+                            <a href="{{ route('registrations.create') }}" class="rounded-full bg-[#f7c95c] px-6 py-3.5 font-bold text-[#032744] transition hover:-translate-y-1 hover:bg-[#ffe18d]">Daftar acara <span aria-hidden="true">→</span></a>
+                            <a href="#jadwal" class="rounded-full border border-white/25 px-6 py-3.5 font-bold text-white transition hover:border-[#63d8f2] hover:text-[#a6f0ff]">Lihat jadwal</a>
                         </div>
                     </div>
 
-                    <div class="relative mx-auto w-full max-w-xl">
-                        <div class="absolute -right-4 -top-4 h-32 w-32 rounded-full bg-[#e6a84d]/50 blur-2xl"></div>
-                        <div class="relative overflow-hidden rounded-[2rem] bg-[#183b3a] p-5 shadow-2xl shadow-[#183b3a]/20">
-                            <div class="flex aspect-[4/5] flex-col justify-between rounded-[1.5rem] border border-white/15 bg-gradient-to-br from-[#286765] via-[#183b3a] to-[#102b2b] p-7 text-white">
-                                <div class="flex items-start justify-between">
-                                    <span class="rounded-full bg-white/10 px-3 py-1 text-xs uppercase tracking-widest text-white/70">Sejak dari dulu</span>
-                                    <span class="text-3xl" aria-hidden="true">✦</span>
-                                </div>
-                                <div>
-                                    <div class="mb-5 text-7xl" aria-hidden="true">🐟</div>
-                                    <p class="font-serif text-4xl leading-tight">Laut punya banyak cerita. Kami menyajikannya.</p>
-                                </div>
-                                <div class="flex items-center justify-between border-t border-white/20 pt-4 text-sm text-white/60">
-                                    <span>Rasa lokal</span>
-                                    <span>01 / 03</span>
-                                </div>
+                    <div class="ocean-drift relative mx-auto w-full max-w-sm">
+                        <div class="absolute -inset-8 rounded-full bg-[#63d8f2]/20 blur-3xl"></div>
+                        <div class="relative rounded-[2rem] border border-white/20 bg-white/10 p-4 shadow-2xl backdrop-blur-sm">
+                            <div class="flex aspect-[4/5] flex-col justify-between overflow-hidden rounded-[1.4rem] bg-gradient-to-b from-[#107da0] via-[#075273] to-[#032744] p-7">
+                                <div class="flex justify-between text-xs font-bold uppercase tracking-widest text-[#a6f0ff]"><span>LB / 26</span><span>✦</span></div>
+                                <div><div class="mb-4 text-7xl" aria-hidden="true">🐋</div><p class="font-serif text-4xl font-bold leading-tight">Temui laut dari sisi yang berbeda.</p></div>
+                                <div class="border-t border-white/20 pt-4 text-sm text-white/65">Pantai Tanjung Biru<br>14–15 Juni 2026 · 08.00–21.00 WIB</div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
 
-            <section id="cerita" class="bg-[#e6a84d]">
-                <div class="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-2 lg:items-center lg:px-8">
-                    <div>
-                        <p class="text-sm font-bold uppercase tracking-[0.25em] text-[#183b3a]/60">Cerita kami</p>
-                        <h2 class="mt-4 max-w-lg font-serif text-4xl font-bold leading-tight text-[#183b3a] sm:text-5xl">
-                            Bukan sekadar hidangan, tapi rasa yang mengingatkan.
-                        </h2>
-                    </div>
-                    <div class="space-y-5 text-lg leading-8 text-[#183b3a]/75">
-                        <p>
-                            Kami percaya masakan yang baik selalu membawa cerita: tentang kampung halaman, tangan yang menyiapkan, dan orang-orang yang berkumpul di sekelilingnya.
-                        </p>
-                        <p>
-                            Di sini, tradisi bertemu cara baru untuk menikmati kekayaan laut Indonesia.
-                        </p>
-                    </div>
+                <div class="absolute bottom-0 left-0 flex w-[200%] text-[#e9fbff] wave-slide" aria-hidden="true">
+                    <svg class="h-28 w-1/2 shrink-0" viewBox="0 0 1440 120" preserveAspectRatio="none"><path fill="currentColor" d="M0 64c120-50 240-50 360 0s240 50 360 0 240-50 360 0 240 50 360 0v56H0z"/></svg>
+                    <svg class="h-28 w-1/2 shrink-0" viewBox="0 0 1440 120" preserveAspectRatio="none"><path fill="currentColor" d="M0 64c120-50 240-50 360 0s240 50 360 0 240-50 360 0 240 50 360 0v56H0z"/></svg>
                 </div>
             </section>
 
-            <section id="rasa" class="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
-                <div class="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
-                    <div>
-                        <p class="text-sm font-bold uppercase tracking-[0.25em] text-[#d96c3f]">Rasa pilihan</p>
-                        <h2 class="mt-3 font-serif text-4xl font-bold text-[#183b3a] sm:text-5xl">Yang selalu dirindukan.</h2>
+            <section id="acara" class="bg-[#e9fbff] py-20 text-[#032744] lg:py-28">
+                <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                    <div class="grid gap-12 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
+                        <div><p class="text-sm font-bold uppercase tracking-[0.25em] text-[#0b86a4]">Tentang acara</p><h2 class="mt-4 font-serif text-4xl font-bold leading-tight sm:text-5xl">Satu akhir pekan. Banyak cerita.</h2></div>
+                        <p class="max-w-2xl text-lg leading-8 text-[#032744]/65">Laut Bercerita adalah ruang temu untuk siapa pun yang ingin mengenal laut lebih dekat. Ikuti lokakarya, pertunjukan, jelajah kuliner, dan aksi nyata bersama komunitas pesisir.</p>
                     </div>
-                    <p class="max-w-sm text-[#183b3a]/60">Tiga alasan untuk kembali ke meja makan dan berbagi lebih lama.</p>
-                </div>
-
-                <div class="mt-12 grid gap-5 md:grid-cols-3">
-                    <article class="rounded-3xl bg-[#183b3a] p-7 text-white">
-                        <span class="text-4xl" aria-hidden="true">🌊</span>
-                        <h3 class="mt-10 font-serif text-2xl font-bold">Segar dari sumbernya</h3>
-                        <p class="mt-3 leading-7 text-white/65">Memilih bahan dengan perhatian supaya rasa lautnya tetap terasa.</p>
-                    </article>
-                    <article class="rounded-3xl bg-[#f0dfc0] p-7 text-[#183b3a]">
-                        <span class="text-4xl" aria-hidden="true">🥣</span>
-                        <h3 class="mt-10 font-serif text-2xl font-bold">Resep penuh cerita</h3>
-                        <p class="mt-3 leading-7 text-[#183b3a]/65">Terinspirasi dari dapur rumahan dan kearifan lokal di setiap pesisir.</p>
-                    </article>
-                    <article class="rounded-3xl bg-[#d96c3f] p-7 text-white">
-                        <span class="text-4xl" aria-hidden="true">🤝</span>
-                        <h3 class="mt-10 font-serif text-2xl font-bold">Dibuat untuk berbagi</h3>
-                        <p class="mt-3 leading-7 text-white/70">Karena makanan terbaik adalah yang membuat kita duduk lebih dekat.</p>
-                    </article>
+                    <div class="mt-12 grid gap-5 md:grid-cols-3">
+                        <article class="rounded-3xl bg-white p-7 shadow-lg shadow-[#0b86a4]/10"><span class="text-4xl" aria-hidden="true">🤿</span><h3 class="mt-8 font-serif text-2xl font-bold">Jelajah bawah laut</h3><p class="mt-3 leading-7 text-[#032744]/60">Kenali ekosistem terumbu karang bersama penyelam dan pegiat konservasi.</p></article>
+                        <article class="rounded-3xl bg-[#bceff8] p-7"><span class="text-4xl" aria-hidden="true">🎶</span><h3 class="mt-8 font-serif text-2xl font-bold">Senja di pesisir</h3><p class="mt-3 leading-7 text-[#032744]/60">Nikmati musik, cerita nelayan, dan langit senja dengan komunitas baru.</p></article>
+                        <article class="rounded-3xl bg-[#06385a] p-7 text-white"><span class="text-4xl" aria-hidden="true">♻️</span><h3 class="mt-8 font-serif text-2xl font-bold">Aksi biru</h3><p class="mt-3 leading-7 text-white/65">Bawa pulang kebiasaan kecil yang berdampak besar untuk laut kita.</p></article>
+                    </div>
                 </div>
             </section>
 
-            <section id="nilai" class="border-y border-[#183b3a]/10 bg-white/40">
-                <div class="mx-auto max-w-7xl px-6 py-16 text-center lg:px-8">
-                    <p class="mx-auto max-w-2xl font-serif text-3xl font-bold leading-tight text-[#183b3a] sm:text-4xl">
-                        “Setiap suapan adalah perjalanan kecil menuju rumah.”
-                    </p>
-                    <p class="mt-5 text-sm font-semibold uppercase tracking-[0.2em] text-[#d96c3f]">Ikanpausikanpindang</p>
+            <section id="jadwal" class="bg-[#06385a] py-20 lg:py-28">
+                <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                    <div class="flex flex-col justify-between gap-5 sm:flex-row sm:items-end"><div><p class="text-sm font-bold uppercase tracking-[0.25em] text-[#63d8f2]">Agenda utama</p><h2 class="mt-4 font-serif text-4xl font-bold sm:text-5xl">Ikuti alirannya.</h2></div><p class="max-w-sm text-white/60">Pilih kegiatan favoritmu, lalu amankan tempat sebelum penuh.</p></div>
+                    <div class="mt-12 grid gap-5 lg:grid-cols-2">
+                        <div class="rounded-3xl border border-white/10 bg-white/5 p-7"><div class="flex items-center justify-between border-b border-white/10 pb-5"><div><p class="text-sm text-[#63d8f2]">SABTU</p><p class="mt-1 text-2xl font-bold">14 Juni 2026</p></div><span class="rounded-full bg-[#f7c95c] px-3 py-1 text-xs font-bold text-[#032744]">HARI 01</span></div><div class="divide-y divide-white/10"><div class="flex gap-5 py-5"><time class="w-16 shrink-0 text-sm font-bold text-[#a6f0ff]">08.00</time><div><h3 class="font-bold">Registrasi & sarapan pesisir</h3><p class="mt-1 text-sm text-white/55">Dermaga utama</p></div></div><div class="flex gap-5 py-5"><time class="w-16 shrink-0 text-sm font-bold text-[#a6f0ff]">10.00</time><div><h3 class="font-bold">Bincang: Menjaga laut dari rumah</h3><p class="mt-1 text-sm text-white/55">Panggung utama</p></div></div><div class="flex gap-5 py-5"><time class="w-16 shrink-0 text-sm font-bold text-[#a6f0ff]">16.30</time><div><h3 class="font-bold">Sunset acoustic & cerita nelayan</h3><p class="mt-1 text-sm text-white/55">Pantai timur</p></div></div><div class="flex gap-5 pt-5"><time class="w-16 shrink-0 text-sm font-bold text-[#a6f0ff]">19.00</time><div><h3 class="font-bold">Malam kuliner laut nusantara</h3><p class="mt-1 text-sm text-white/55">Pasar rasa</p></div></div></div></div>
+                        <div class="rounded-3xl border border-white/10 bg-white/5 p-7"><div class="flex items-center justify-between border-b border-white/10 pb-5"><div><p class="text-sm text-[#63d8f2]">MINGGU</p><p class="mt-1 text-2xl font-bold">15 Juni 2026</p></div><span class="rounded-full bg-[#63d8f2] px-3 py-1 text-xs font-bold text-[#032744]">HARI 02</span></div><div class="divide-y divide-white/10"><div class="flex gap-5 py-5"><time class="w-16 shrink-0 text-sm font-bold text-[#a6f0ff]">07.00</time><div><h3 class="font-bold">Beach clean-up bersama</h3><p class="mt-1 text-sm text-white/55">Pantai selatan</p></div></div><div class="flex gap-5 py-5"><time class="w-16 shrink-0 text-sm font-bold text-[#a6f0ff]">10.00</time><div><h3 class="font-bold">Workshop fotografi bawah air</h3><p class="mt-1 text-sm text-white/55">Ruang kreatif</p></div></div><div class="flex gap-5 py-5"><time class="w-16 shrink-0 text-sm font-bold text-[#a6f0ff]">14.00</time><div><h3 class="font-bold">Pameran karya anak pesisir</h3><p class="mt-1 text-sm text-white/55">Galeri bahari</p></div></div><div class="flex gap-5 pt-5"><time class="w-16 shrink-0 text-sm font-bold text-[#a6f0ff]">17.00</time><div><h3 class="font-bold">Penutupan & pelepasan tukik</h3><p class="mt-1 text-sm text-white/55">Pantai utama</p></div></div></div></div>
+                    </div>
                 </div>
+            </section>
+
+            <section class="bg-[#bceff8] px-6 py-20 text-center text-[#032744] lg:py-28">
+                <p class="text-sm font-bold uppercase tracking-[0.25em] text-[#0b86a4]">Amankan tempatmu</p>
+                <h2 class="mx-auto mt-4 max-w-2xl font-serif text-4xl font-bold leading-tight sm:text-5xl">Siap ikut arus?</h2>
+                <p class="mx-auto mt-5 max-w-xl leading-7 text-[#032744]/65">Daftar sekarang dan dapatkan konfirmasi acara langsung di email kamu.</p>
+                <a href="{{ route('registrations.create') }}" class="mt-8 inline-flex rounded-full bg-[#032744] px-7 py-3.5 font-bold text-white transition hover:-translate-y-1 hover:bg-[#075273]">Isi formulir registrasi →</a>
             </section>
         </main>
 
-        <footer class="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 text-sm text-[#183b3a]/60 sm:flex-row sm:items-center sm:justify-between lg:px-8">
-            <p>© {{ date('Y') }} {{ config('app.name', 'Ikanpausikanpindang') }}.</p>
-            <a href="#beranda" class="font-semibold text-[#183b3a] transition hover:text-[#d96c3f]">Kembali ke atas ↑</a>
-        </footer>
+        <footer class="bg-[#031c35] px-6 py-8 text-center text-sm text-white/55"><p>© {{ date('Y') }} Ikanpausikanpindang · Laut Bercerita 2026</p></footer>
     </body>
 </html>
