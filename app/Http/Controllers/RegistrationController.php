@@ -23,6 +23,7 @@ class RegistrationController extends Controller
     public function store(RegistrationRequest $request): RedirectResponse
     {
         $registration = $request->validated();
+        $registration['ticket_code'] = 'LB26-'.Str::upper(Str::random(8));
 
         try {
             Mail::to($registration['email'])->send(new RegistrationConfirmation($registration));
@@ -38,7 +39,7 @@ class RegistrationController extends Controller
         }
 
         $ticket = [
-            'code' => 'LB26-'.Str::upper(Str::random(8)),
+            'code' => $registration['ticket_code'],
             'name' => $registration['name'],
             'email' => $registration['email'],
             'schedule' => $registration['schedule'],

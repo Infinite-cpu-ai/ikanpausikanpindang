@@ -93,15 +93,16 @@ it('renders a polished confirmation email with registration details', function (
         'gender' => 'male',
         'schedule' => ['sunday-14-morning'],
         'notes' => 'Saya siap bergabung.',
+        'ticket_code' => 'LB26-TEST1234',
     ];
 
     $html = (new RegistrationConfirmation($registration))->render();
 
     expect($html)
         ->toContain('Registrasi terkonfirmasi')
-        ->toContain('IKANPAUS')
-        ->not->toContain('ikanpausikanpindang-mascot.jpeg')
-        ->toContain('Sampai jumpa di laut.')
+        ->toContain('LB26-TEST1234')
+        ->toContain('Buka halaman pendaftaran')
+        ->toContain('Pendaftaran berhasil!')
         ->toContain('Registrasi &amp; sarapan pesisir')
         ->toContain('Saya siap bergabung.');
 });
