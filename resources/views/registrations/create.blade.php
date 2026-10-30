@@ -70,11 +70,6 @@
                                 <input id="phone" name="phone" type="tel" value="{{ old('phone') }}" required maxlength="30" autocomplete="tel" class="mt-2 block w-full rounded-xl border border-[#032744]/15 px-4 py-3 outline-none transition focus:border-[#0b86a4] focus:ring-2 focus:ring-[#0b86a4]/20">
                                 @error('phone')<p class="mt-1 text-sm text-red-700">{{ $message }}</p>@enderror
                             </div>
-                            <div>
-                                <label for="birth_date" class="block text-sm font-semibold">Tanggal lahir</label>
-                                <input id="birth_date" name="birth_date" type="date" value="{{ old('birth_date') }}" max="{{ now()->subDay()->toDateString() }}" required class="mt-2 block w-full rounded-xl border border-[#032744]/15 px-4 py-3 outline-none transition focus:border-[#0b86a4] focus:ring-2 focus:ring-[#0b86a4]/20">
-                                @error('birth_date')<p class="mt-1 text-sm text-red-700">{{ $message }}</p>@enderror
-                            </div>
                         </div>
 
                         <fieldset>
@@ -86,11 +81,27 @@
                             @error('gender')<p class="mt-1 text-sm text-red-700">{{ $message }}</p>@enderror
                         </fieldset>
 
-                        <div>
-                            <label for="address" class="block text-sm font-semibold">Alamat</label>
-                            <textarea id="address" name="address" rows="3" required maxlength="500" autocomplete="street-address" class="mt-2 block w-full rounded-xl border border-[#032744]/15 px-4 py-3 outline-none transition focus:border-[#0b86a4] focus:ring-2 focus:ring-[#0b86a4]/20">{{ old('address') }}</textarea>
-                            @error('address')<p class="mt-1 text-sm text-red-700">{{ $message }}</p>@enderror
-                        </div>
+                        <fieldset>
+                            <legend class="text-sm font-semibold">Pilih jadwal yang ingin kamu ikuti</legend>
+                            <p class="mt-1 text-sm text-[#032744]/60">Kamu bisa memilih lebih dari satu kegiatan.</p>
+                            <div class="mt-4 grid gap-3 sm:grid-cols-2">
+                                @foreach ([
+                                    'saturday-morning' => ['Sabtu, 08.00', 'Registrasi & sarapan pesisir'],
+                                    'saturday-evening' => ['Sabtu, 16.30', 'Sunset acoustic & cerita nelayan'],
+                                    'saturday-night' => ['Sabtu, 19.00', 'Malam kuliner laut nusantara'],
+                                    'sunday-morning' => ['Minggu, 07.00', 'Beach clean-up bersama'],
+                                    'sunday-day' => ['Minggu, 10.00', 'Workshop fotografi bawah air'],
+                                    'sunday-closing' => ['Minggu, 17.00', 'Penutupan & pelepasan tukik'],
+                                ] as $value => [$time, $activity])
+                                    <label class="flex cursor-pointer items-start gap-3 rounded-xl border border-[#032744]/15 p-4 transition hover:border-[#0b86a4] has-[:checked]:border-[#0b86a4] has-[:checked]:bg-[#e9fbff]">
+                                        <input type="checkbox" name="schedule[]" value="{{ $value }}" @checked(in_array($value, old('schedule', []), true)) class="mt-1">
+                                        <span><strong class="block text-sm">{{ $time }}</strong><span class="mt-1 block text-sm text-[#032744]/65">{{ $activity }}</span></span>
+                                    </label>
+                                @endforeach
+                            </div>
+                            @error('schedule')<p class="mt-1 text-sm text-red-700">{{ $message }}</p>@enderror
+                            @error('schedule.*')<p class="mt-1 text-sm text-red-700">{{ $message }}</p>@enderror
+                        </fieldset>
 
                         <div>
                             <label for="notes" class="block text-sm font-semibold">Catatan <span class="font-normal text-[#032744]/50">(opsional)</span></label>

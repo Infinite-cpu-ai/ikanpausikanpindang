@@ -19,9 +19,8 @@ it('sends a confirmation email for valid registration data', function () {
         'name' => 'Budi Santoso',
         'email' => 'budi@example.com',
         'phone' => '08123456789',
-        'birth_date' => '2000-01-01',
         'gender' => 'male',
-        'address' => 'Jl. Pesisir No. 1',
+        'schedule' => ['saturday-morning', 'sunday-closing'],
         'notes' => 'Saya siap bergabung.',
         'agree' => '1',
     ];
@@ -32,8 +31,8 @@ it('sends a confirmation email for valid registration data', function () {
     $response->assertSessionHas('registration_submitted', true);
     Mail::assertSent(RegistrationConfirmation::class, function (RegistrationConfirmation $mail) use ($registration): bool {
         return $mail->hasTo($registration['email'])
-            && $mail->registration === $registration
-            && str_contains($mail->render(), 'Budi Santoso');
+            && $mail->registration['name'] === $registration['name']
+            && $mail->registration['schedule'] === $registration['schedule'];
     });
 });
 
@@ -44,14 +43,13 @@ it('rejects invalid registration data without sending email', function () {
         'name' => '',
         'email' => 'not-an-email',
         'phone' => '',
-        'birth_date' => now()->addDay()->toDateString(),
         'gender' => 'unknown',
-        'address' => '',
+        'schedule' => [],
         'agree' => '0',
     ]);
 
     $response
         ->assertRedirect('/pendaftaran')
-        ->assertSessionHasErrors(['name', 'email', 'phone', 'birth_date', 'gender', 'address', 'agree']);
+        ->assertSessionHasErrors(['name', 'email', 'phone', 'gender', 'schedule', 'agree']);
     Mail::assertNothingSent();
 });

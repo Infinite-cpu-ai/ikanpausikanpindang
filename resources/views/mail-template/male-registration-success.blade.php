@@ -18,11 +18,24 @@
                     <p style="margin: 0 0 6px;"><strong>Lokasi:</strong> Pantai Tanjung Biru</p>
                     <p style="margin: 0 0 6px;"><strong>Email:</strong> {{ $registration['email'] }}</p>
                     <p style="margin: 0 0 6px;"><strong>No. telepon:</strong> {{ $registration['phone'] }}</p>
-                    <p style="margin: 0;"><strong>Tanggal lahir:</strong> {{ \Illuminate\Support\Carbon::parse($registration['birth_date'])->translatedFormat('d F Y') }}</p>
                     <p style="margin: 6px 0 0;"><strong>Jenis kelamin:</strong> {{ $registration['gender'] === 'male' ? 'Laki-laki' : 'Perempuan' }}</p>
                 </div>
 
-                <p><strong>Alamat pendaftaran:</strong><br>{{ $registration['address'] }}</p>
+                <p><strong>Jadwal yang dipilih:</strong></p>
+                <ul style="padding-left: 20px;">
+                    @foreach ($registration['schedule'] as $schedule)
+                        <li>
+                            @switch($schedule)
+                                @case('saturday-morning') Sabtu, 08.00 — Registrasi & sarapan pesisir @break
+                                @case('saturday-evening') Sabtu, 16.30 — Sunset acoustic & cerita nelayan @break
+                                @case('saturday-night') Sabtu, 19.00 — Malam kuliner laut nusantara @break
+                                @case('sunday-morning') Minggu, 07.00 — Beach clean-up bersama @break
+                                @case('sunday-day') Minggu, 10.00 — Workshop fotografi bawah air @break
+                                @case('sunday-closing') Minggu, 17.00 — Penutupan & pelepasan tukik @break
+                            @endswitch
+                        </li>
+                    @endforeach
+                </ul>
                 @if (filled($registration['notes']))
                     <p><strong>Catatan:</strong><br>{{ $registration['notes'] }}</p>
                 @endif

@@ -17,9 +17,9 @@ class RegistrationRequest extends FormRequest
             'name' => ['required', 'string', 'max:120'],
             'email' => ['required', 'email:rfc', 'max:255'],
             'phone' => ['required', 'string', 'max:30'],
-            'birth_date' => ['required', 'date', 'before:today'],
             'gender' => ['required', 'in:male,female'],
-            'address' => ['required', 'string', 'max:500'],
+            'schedule' => ['required', 'array', 'min:1'],
+            'schedule.*' => ['string', 'in:saturday-morning,saturday-evening,saturday-night,sunday-morning,sunday-day,sunday-closing'],
             'notes' => ['nullable', 'string', 'max:1000'],
             'agree' => ['accepted'],
         ];
@@ -28,8 +28,8 @@ class RegistrationRequest extends FormRequest
     public function attributes(): array
     {
         return [
-            'birth_date' => 'tanggal lahir',
             'gender' => 'jenis kelamin',
+            'schedule' => 'pilihan jadwal',
             'agree' => 'persetujuan',
         ];
     }
